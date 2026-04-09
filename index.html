@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apps Hỗ Trợ Tại Trạm Y Tế</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            background-color: #0078d4;
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        header h1 { margin: 0; font-size: 2.2em; }
+        header p { margin: 10px 0 0 0; font-size: 1.1em; opacity: 0.9; }
+        main {
+            flex: 1;
+            padding: 40px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .section-title {
+            text-align: center;
+            color: #444;
+            margin-bottom: 40px;
+            font-size: 1.8em;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 20px rgba(0,0,0,0.1);
+        }
+        .icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+        .card h3 {
+            color: #005a9e;
+            margin: 0 0 15px 0;
+            font-size: 1.4em;
+        }
+        .card p {
+            color: #666;
+            margin: 0 0 25px 0;
+            line-height: 1.5;
+            flex-grow: 1;
+        }
+        .btn {
+            background-color: #107c41;
+            color: white;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: background-color 0.2s;
+            width: 80%;
+        }
+        .btn:hover { background-color: #0c5e31; }
+        footer {
+            background-color: #e1dfdd;
+            padding: 15px;
+            text-align: center;
+            color: #605e5c;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Hệ Sinh Thái Apps Y Tế Cơ Sở</h1>
+        <p>Trung tâm quản lý các ứng dụng hỗ trợ công việc tại Trạm Y Tế</p>
+    </header>
+    <main>
+        <h2 class="section-title">Danh sách ứng dụng</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="icon">💉</div>
+                <h3>Lịch Tiêm Chủng</h3>
+                <p>Quản lý danh sách, theo dõi mũi tiêm và tra cứu lịch tiêm chủng mở rộng cho trẻ em và người lớn.</p>
+                <a href="Lichtiemchung.html" class="btn">Truy cập ngay</a>
+            </div>
+            <!-- Placeholder for future apps -->
+            <div class="card" style="opacity: 0.6; border: 2px dashed #ccc; box-shadow: none;">
+                <div class="icon">💊</div>
+                <h3>Quản Lý Kho Thuốc</h3>
+                <p>Theo dõi xuất nhập tồn, quản lý hạn sử dụng thuốc tại trạm y tế. (Sắp ra mắt)</p>
+                <a href="#" class="btn" style="background-color: #ccc; cursor: not-allowed;">Đang phát triển</a>
+            </div>
+        </div>
+    </main>
+    <footer>
+        &copy; 2026 Apps Trạm Y Tế - Phát triển để phục vụ cộng đồng
+    </footer>
+</body>
+</html>
