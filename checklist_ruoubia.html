@@ -1282,9 +1282,25 @@
     }
 
     async function submitToGoogleSheets(data){
-      if(!GAS_WEB_APP_URL || GAS_WEB_APP_URL.includes("PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE")){
+      if(!GAS_WEB_APP_URL || GAS_WEB_APP_URL.includes("https://script.google.com/macros/s/AKfycbwQyF_NSRiNcBt546ndqGfo71dBvvi22eaCX62qcWAFmM22APzPLuxmbhmpAgkK7JWo/exec")){
         throw new Error("Bạn chưa cấu hình URL Google Apps Script Web App.");
       }
+
+      const response = await fetch(GAS_WEB_APP_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "text/plain;charset=utf-8"
+        },
+        body: JSON.stringify(data)
+      });
+
+      const text = await response.text();
+      // Bắt lỗi nếu Google Apps Script trả về chữ "Lỗi" hoặc HTML lỗi của Google
+      if(!response.ok || text.includes("Lỗi") || text.includes("Error") || text.includes("<html")){
+        throw new Error(text || "Không thể lưu dữ liệu vào hệ thống.");
+      }
+      return text;
+    }
 
       const response = await fetch(GAS_WEB_APP_URL, {
         method: "POST",
