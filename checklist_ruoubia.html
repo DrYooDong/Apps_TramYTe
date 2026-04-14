@@ -1044,7 +1044,7 @@
   <script>
     // ===== CẤU HÌNH =====
     // Dán URL Web App của Google Apps Script vào đây sau khi bạn deploy:
-    const GAS_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwQyF_NSRiNcBt546ndqGfo71dBvvi22eaCX62qcWAFmM22APzPLuxmbhmpAgkK7JWo/exec";
+    const GAS_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyDRi1L5iP-q4lVDGds5ZIyMEPtLiCGpH_eVa3LvQkKAVzppdCP19xabPHAGeByLCm9/exec";
 
     const state = {
       step: 1,
@@ -1282,7 +1282,7 @@
     }
 
     async function submitToGoogleSheets(data){
-      if(!GAS_WEB_APP_URL || GAS_WEB_APP_URL.includes("https://script.google.com/macros/s/AKfycbwQyF_NSRiNcBt546ndqGfo71dBvvi22eaCX62qcWAFmM22APzPLuxmbhmpAgkK7JWo/exec")){
+      if(!GAS_WEB_APP_URL || GAS_WEB_APP_URL.includes("PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE")){
         throw new Error("Bạn chưa cấu hình URL Google Apps Script Web App.");
       }
 
@@ -1291,13 +1291,13 @@
         headers: {
           "Content-Type": "text/plain;charset=utf-8"
         },
+        redirect: "follow",
         body: JSON.stringify(data)
       });
 
       const text = await response.text();
-      // Bắt lỗi nếu Google Apps Script trả về chữ "Lỗi" hoặc HTML lỗi của Google
-      if(!response.ok || text.includes("Lỗi") || text.includes("Error") || text.includes("<html")){
-        throw new Error(text || "Không thể lưu dữ liệu vào hệ thống.");
+      if(!response.ok){
+        throw new Error(text || "Không thể gửi dữ liệu.");
       }
       return text;
     }
@@ -1358,7 +1358,7 @@
       }
     });
     const HCMC_NEW_WARDS = [
-      "Đặc khu Côn Đảo",
+    "Đặc khu Côn Đảo",
       "Phường An Đông",
       "Phường An Hội Đông",
       "Phường An Hội Tây",
