@@ -1,0 +1,1622 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bộ câu hỏi sàng lọc nguy cơ sức khỏe do uống rượu bia</title>
+  <meta name="description" content="Biểu mẫu sàng lọc nguy cơ sức khỏe do uống rượu bia" />
+  <style>
+    :root{
+      --bg:#f4fbf9;
+      --bg-soft:#eef7f5;
+      --card:#ffffff;
+      --text:#14323a;
+      --muted:#5f7d84;
+      --line:#d7e7e3;
+      --primary:#0f766e;
+      --primary-2:#0b5f59;
+      --accent:#14b8a6;
+      --danger:#dc2626;
+      --warning:#d97706;
+      --success:#15803d;
+      --shadow:0 12px 40px rgba(15, 118, 110, 0.12);
+      --radius:20px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;font-family:Inter,Segoe UI,Roboto,Arial,sans-serif;background:linear-gradient(180deg,#f2fbf9 0%, #f7fcfb 100%);color:var(--text)}
+    body{min-height:100vh}
+
+    .shell{
+      max-width:1100px;
+      margin:0 auto;
+      padding:24px 16px 40px;
+    }
+
+    .hero{
+      background:
+        radial-gradient(circle at top right, rgba(20,184,166,.18), transparent 24%),
+        linear-gradient(135deg, #0f766e 0%, #0b5f59 100%);
+      color:#fff;
+      border-radius:28px;
+      padding:28px 24px;
+      box-shadow:var(--shadow);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .hero::after{
+      content:"";
+      position:absolute;
+      right:-40px;
+      top:-40px;
+      width:220px;
+      height:220px;
+      border-radius:50%;
+      background:rgba(255,255,255,.08);
+    }
+
+    .hero-badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 12px;
+      background:rgba(255,255,255,.12);
+      border:1px solid rgba(255,255,255,.18);
+      border-radius:999px;
+      font-size:13px;
+      margin-bottom:12px;
+      backdrop-filter: blur(6px);
+    }
+
+    .hero h1{
+      margin:0;
+      font-size:clamp(24px, 4vw, 36px);
+      line-height:1.25;
+      font-weight:800;
+      max-width:850px;
+    }
+
+    .hero p{
+      margin:12px 0 0;
+      max-width:820px;
+      color:rgba(255,255,255,.9);
+      line-height:1.6;
+      font-size:15px;
+    }
+
+    .layout{
+      display:grid;
+      grid-template-columns: 320px 1fr;
+      gap:22px;
+      margin-top:22px;
+    }
+
+    .panel, .card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+    }
+
+    .panel{
+      padding:18px;
+      height:fit-content;
+      position:sticky;
+      top:16px;
+    }
+
+    .panel h2{
+      margin:0 0 10px;
+      font-size:18px;
+    }
+
+    .panel p{
+      margin:0 0 14px;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.6;
+    }
+
+    .step-list{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      margin-top:10px;
+    }
+
+    .step-item{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      padding:12px;
+      border-radius:16px;
+      border:1px solid var(--line);
+      background:#fbfefd;
+      transition:.2s ease;
+    }
+
+    .step-item.active{
+      background:#ecfdf8;
+      border-color:#8fe0d3;
+    }
+
+    .step-item.done{
+      background:#f0fdf4;
+      border-color:#a7f3d0;
+    }
+
+    .step-num{
+      min-width:36px;
+      width:36px;
+      height:36px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      font-weight:700;
+      background:#e6f4f2;
+      color:var(--primary);
+      border:1px solid #cae7e2;
+    }
+
+    .step-item.active .step-num{
+      background:var(--primary);
+      color:#fff;
+      border-color:var(--primary);
+    }
+
+    .step-item.done .step-num{
+      background:var(--success);
+      color:#fff;
+      border-color:var(--success);
+    }
+
+    .step-text strong{
+      display:block;
+      font-size:15px;
+      margin-bottom:4px;
+    }
+
+    .step-text span{
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.5;
+    }
+
+    .help-box{
+      margin-top:16px;
+      padding:14px;
+      border-radius:16px;
+      background:var(--bg-soft);
+      border:1px dashed #b9d9d3;
+      font-size:13px;
+      color:var(--muted);
+      line-height:1.6;
+    }
+
+    .card{
+      padding:22px;
+    }
+
+    .card-head{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:16px;
+      margin-bottom:18px;
+    }
+
+    .card-head h2{
+      margin:0;
+      font-size:24px;
+    }
+
+    .card-head p{
+      margin:8px 0 0;
+      color:var(--muted);
+      line-height:1.6;
+      font-size:14px;
+    }
+
+    .progress-wrap{
+      min-width:170px;
+      text-align:right;
+    }
+
+    .progress-label{
+      font-size:13px;
+      color:var(--muted);
+      margin-bottom:8px;
+    }
+
+    .progress{
+      width:100%;
+      height:10px;
+      background:#e8f1ef;
+      border-radius:999px;
+      overflow:hidden;
+      border:1px solid #d6e5e1;
+    }
+
+    .progress-bar{
+      height:100%;
+      width:33.333%;
+      background:linear-gradient(90deg, var(--primary), var(--accent));
+      border-radius:999px;
+      transition:width .3s ease;
+    }
+
+    form{margin:0}
+    .step-section{display:none}
+    .step-section.active{display:block;animation:fade .25s ease}
+    @keyframes fade{
+      from{opacity:.3;transform:translateY(6px)}
+      to{opacity:1;transform:none}
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:16px;
+    }
+
+    .grid-1{grid-column:1/-1}
+
+    .field{
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+
+    .field label{
+      font-weight:700;
+      font-size:14px;
+    }
+
+    .hint{
+      margin-top:-2px;
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.5;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    input[type="tel"],
+    input[type="number"],
+    select,
+    textarea{
+      width:100%;
+      border:1px solid #cfe1dd;
+      background:#fff;
+      border-radius:14px;
+      padding:13px 14px;
+      font:inherit;
+      color:var(--text);
+      outline:none;
+      transition:.2s ease;
+    }
+
+    textarea{
+      min-height:100px;
+      resize:vertical;
+    }
+
+    input:focus, select:focus, textarea:focus{
+      border-color:var(--accent);
+      box-shadow:0 0 0 4px rgba(20,184,166,.12);
+    }
+
+    .radio-group,
+    .choice-grid{
+      display:grid;
+      gap:10px;
+    }
+
+    .radio-inline{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .radio-card,
+    .choice-card{
+      position:relative;
+    }
+
+    .radio-card input,
+    .choice-card input{
+      position:absolute;
+      opacity:0;
+      pointer-events:none;
+    }
+
+    .radio-card label,
+    .choice-card label{
+      display:block;
+      border:1px solid #cfe1dd;
+      background:#fff;
+      padding:14px 14px;
+      border-radius:16px;
+      cursor:pointer;
+      transition:.2s ease;
+      line-height:1.5;
+      height:100%;
+    }
+
+    .radio-card input:checked + label,
+    .choice-card input:checked + label{
+      border-color:var(--primary);
+      background:#ecfdf8;
+      box-shadow:0 0 0 4px rgba(15,118,110,.08);
+    }
+
+    .question{
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:16px;
+      background:#fcfffe;
+    }
+
+    .question h3{
+      margin:0 0 4px;
+      font-size:17px;
+    }
+
+    .question p{
+      margin:0 0 12px;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.5;
+    }
+
+    .actions{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      margin-top:24px;
+      flex-wrap:wrap;
+    }
+
+    .actions-right{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      border:none;
+      border-radius:14px;
+      padding:13px 18px;
+      font:inherit;
+      font-weight:700;
+      cursor:pointer;
+      transition:.2s ease;
+    }
+
+    .btn:disabled{
+      opacity:.5;
+      cursor:not-allowed;
+    }
+
+    .btn-primary{
+      background:linear-gradient(135deg, var(--primary), var(--primary-2));
+      color:#fff;
+      box-shadow:0 10px 24px rgba(15,118,110,.18);
+    }
+
+    .btn-primary:hover{transform:translateY(-1px)}
+
+    .btn-secondary{
+      background:#fff;
+      color:var(--text);
+      border:1px solid #cfe1dd;
+    }
+
+    .btn-ghost{
+      background:#ecfdf8;
+      color:var(--primary);
+      border:1px solid #bfe8df;
+    }
+
+    .alert{
+      display:none;
+      margin-top:16px;
+      padding:14px 16px;
+      border-radius:16px;
+      line-height:1.6;
+      font-size:14px;
+    }
+
+    .alert.show{display:block}
+    .alert.error{
+      background:#fef2f2;
+      border:1px solid #fecaca;
+      color:#991b1b;
+    }
+
+    .alert.success{
+      background:#f0fdf4;
+      border:1px solid #bbf7d0;
+      color:#166534;
+    }
+
+    .score-box{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+      margin-top:18px;
+    }
+
+    .metric{
+      border:1px solid var(--line);
+      border-radius:18px;
+      background:#fbfefd;
+      padding:16px;
+    }
+
+    .metric .k{
+      font-size:13px;
+      color:var(--muted);
+      margin-bottom:6px;
+    }
+
+    .metric .v{
+      font-size:28px;
+      font-weight:800;
+      color:var(--primary);
+    }
+
+    .result-box{
+      margin-top:18px;
+      border-radius:22px;
+      padding:20px;
+      border:1px solid #bfdbfe;
+      background:linear-gradient(180deg,#f8fbff 0%, #eef8ff 100%);
+    }
+
+    .result-box.low{
+      border-color:#a7f3d0;
+      background:linear-gradient(180deg,#f7fff9 0%, #effdf3 100%);
+    }
+
+    .result-box.medium{
+      border-color:#fde68a;
+      background:linear-gradient(180deg,#fffdf7 0%, #fff8e7 100%);
+    }
+
+    .result-box.high{
+      border-color:#fecaca;
+      background:linear-gradient(180deg,#fff8f8 0%, #fff0f0 100%);
+    }
+
+    .result-title{
+      margin:0 0 8px;
+      font-size:22px;
+      font-weight:800;
+    }
+
+    .result-desc,
+    .result-note{
+      margin:0;
+      line-height:1.7;
+      color:#33555d;
+    }
+
+    .footer-note{
+      margin-top:22px;
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.7;
+      text-align:center;
+    }
+
+    .required{color:var(--danger)}
+
+    @media (max-width: 920px){
+      .layout{
+        grid-template-columns:1fr;
+      }
+      .panel{
+        position:static;
+      }
+    }
+
+    @media (max-width: 680px){
+      .hero{
+        padding:22px 18px;
+        border-radius:22px;
+      }
+      .card{
+        padding:18px 14px;
+      }
+      .card-head{
+        flex-direction:column;
+      }
+      .progress-wrap{
+        width:100%;
+        text-align:left;
+      }
+      .grid{
+        grid-template-columns:1fr;
+      }
+      .score-box{
+        grid-template-columns:1fr;
+      }
+      .actions{
+        flex-direction:column-reverse;
+        align-items:stretch;
+      }
+      .actions-right{
+        width:100%;
+      }
+      .actions-right .btn,
+      .actions .btn{
+        width:100%;
+      }
+    }
+    .combo{
+      position:relative;
+    }
+
+    .combo-trigger{
+      width:100%;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      border:1px solid #cfe1dd;
+      background:#fff;
+      border-radius:14px;
+      padding:13px 14px;
+      font:inherit;
+      color:var(--text);
+      cursor:pointer;
+      transition:.2s ease;
+    }
+
+    .combo-trigger:hover,
+    .combo-trigger.open{
+      border-color:var(--accent);
+      box-shadow:0 0 0 4px rgba(20,184,166,.12);
+    }
+
+    .combo-caret{
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .combo-panel{
+      position:absolute;
+      top:calc(100% + 8px);
+      left:0;
+      right:0;
+      background:#fff;
+      border:1px solid #d8e7e3;
+      border-radius:16px;
+      box-shadow:0 18px 40px rgba(16, 70, 66, .16);
+      z-index:30;
+      display:none;
+      overflow:hidden;
+    }
+
+    .combo-panel.show{
+      display:block;
+    }
+
+    .combo-search-wrap{
+      padding:10px;
+      border-bottom:1px solid #edf4f2;
+      background:#fbfefd;
+    }
+
+    .combo-search{
+      width:100%;
+      border:1px solid #d8e7e3;
+      border-radius:12px;
+      padding:11px 12px;
+      font:inherit;
+      outline:none;
+    }
+
+    .combo-search:focus{
+      border-color:var(--accent);
+      box-shadow:0 0 0 4px rgba(20,184,166,.12);
+    }
+
+    .combo-list{
+      max-height:280px;
+      overflow:auto;
+      padding:8px;
+    }
+
+    .combo-item{
+      width:100%;
+      text-align:left;
+      border:none;
+      background:#fff;
+      border-radius:12px;
+      padding:11px 12px;
+      font:inherit;
+      color:var(--text);
+      cursor:pointer;
+      transition:.15s ease;
+    }
+
+    .combo-item:hover,
+    .combo-item.active{
+      background:#eef7ff;
+      color:#0b5f59;
+    }
+
+    .combo-empty{
+      padding:12px;
+      color:var(--muted);
+      font-size:14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <section class="hero">
+      <h1>Bộ câu hỏi sàng lọc nguy cơ sức khỏe do uống rượu bia</h1>
+      <p>Dành cho người từ 18 tuổi trở lên.</p>
+    </section>
+
+    <div class="layout">
+      <aside class="panel">
+        <h2>Quy trình thực hiện</h2>
+        <div class="step-list">
+          <div class="step-item active" id="navStep1">
+            <div class="step-num">1</div>
+            <div class="step-text">
+              <strong>Thông tin</strong>
+              <span>Nhập thông tin cá nhân và nơi cư trú/sàng lọc.</span>
+            </div>
+          </div>
+
+          <div class="step-item" id="navStep2">
+            <div class="step-num">2</div>
+            <div class="step-text">
+              <strong>Câu hỏi</strong>
+              <span>Trả lời bộ câu hỏi đánh giá mức độ nguy cơ.</span>
+            </div>
+          </div>
+
+          <div class="step-item" id="navStep3">
+            <div class="step-num">3</div>
+            <div class="step-text">
+              <strong>Kết quả</strong>
+              <span>Xem điểm tổng hợp và mức phân loại nguy cơ ban đầu.</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <main class="card">
+        <div class="card-head">
+          <div>
+            <h2 id="stepTitle">Thông tin người tham gia</h2>
+            <p id="stepDesc">Vui lòng nhập đầy đủ các thông tin bắt buộc (đánh dấu *).</p>
+          </div>
+          <div class="progress-wrap">
+            <div class="progress-label" id="progressLabel">Bước 1 / 3</div>
+            <div class="progress">
+              <div class="progress-bar" id="progressBar"></div>
+            </div>
+          </div>
+        </div>
+
+        <form id="screeningForm">
+          <!-- STEP 1 -->
+          <section class="step-section active" data-step="1">
+            <div class="grid">
+              <div class="field grid-1">
+                <label for="fullName">Họ và tên <span class="required">*</span></label>
+                <input type="text" id="fullName" name="fullName" placeholder="Nhập họ và tên" required />
+              </div>
+
+              <div class="field">
+                <label for="dob">Ngày, tháng, năm sinh <span class="required">*</span></label>
+                <input type="date" id="dob" name="dob" required />
+              </div>
+
+              <div class="field">
+                <label>Giới tính <span class="required">*</span></label>
+                <div class="radio-inline">
+                  <div class="radio-card">
+                    <input type="radio" id="genderMale" name="gender" value="Nam" required />
+                    <label for="genderMale">Nam</label>
+                  </div>
+                  <div class="radio-card">
+                    <input type="radio" id="genderFemale" name="gender" value="Nữ" />
+                    <label for="genderFemale">Nữ</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="phone">Số điện thoại <span class="required">*</span></label>
+                <input type="tel" id="phone" name="phone" placeholder="Ví dụ: 0912345678" required />
+                <div class="hint">(để nhân viên TYT liên hệ tư vấn)</div>
+              </div>
+
+              <div class="field">
+                <label for="wardSearch">Phường / Xã nơi sàng lọc <span class="required">*</span></label>
+
+                <div class="combo" id="wardCombo">
+                  <button class="combo-trigger" type="button" id="wardTrigger">
+                    <span id="wardTriggerText">Chọn phường / xã</span>
+                    <span class="combo-caret">▾</span>
+                  </button>
+
+                  <div class="combo-panel" id="wardPanel">
+                    <div class="combo-search-wrap">
+                      <input
+                        type="text"
+                        id="wardSearch"
+                        class="combo-search"
+                        placeholder="Tìm phường..."
+                        autocomplete="off"
+                      />
+                    </div>
+                    <div class="combo-list" id="wardList"></div>
+                  </div>
+                </div>
+
+                <input type="hidden" id="ward" name="ward" required />
+                <div class="hint">Chọn phường hoặc xã theo đơn vị hành chính mới của TP.HCM.</div>
+              </div>
+
+              <div class="field grid-1">
+                <label for="address">Địa chỉ đang sinh sống</label>
+                <textarea id="address" name="address" placeholder="(số nhà, tên đường, phường)"></textarea>
+              </div>
+            </div>
+
+            <div class="alert error" id="step1Error"></div>
+
+            <div class="actions">
+              <div></div>
+              <div class="actions-right">
+                <button class="btn btn-primary" type="button" id="toStep2">Tiếp tục</button>
+              </div>
+            </div>
+          </section>
+
+          <!-- STEP 2 -->
+          <section class="step-section" data-step="2">
+            <div class="question">
+              <h3>Câu 1. Tần suất sử dụng rượu bia</h3>
+              <p>Trong 12 tháng gần đây, bạn uống rượu/bia với tần suất như thế nào?</p>
+              <div class="choice-grid">
+                <div class="choice-card">
+                  <input type="radio" id="q1a" name="q1" value="0" />
+                  <label for="q1a">Không bao giờ</label>
+                </div>
+                <div class="choice-card">
+                  <input type="radio" id="q1b" name="q1" value="1" />
+                  <label for="q1b">Ít hơn 1 lần/tháng</label>
+                </div>
+                <div class="choice-card">
+                  <input type="radio" id="q1c" name="q1" value="2" />
+                  <label for="q1c">1 đến 3 lần/tháng</label>
+                </div>
+                <div class="choice-card">
+                  <input type="radio" id="q1d" name="q1" value="3" />
+                  <label for="q1d">1 đến 4 lần/tuần</label>
+                </div>
+                <div class="choice-card">
+                  <input type="radio" id="q1e" name="q1" value="4" />
+                  <label for="q1e">Gần như hằng ngày hoặc hằng ngày</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="question" style="margin-top:16px;">
+              <h3>Câu 2. Số lượng uống trong một ngày điển hình</h3>
+              <p>Khi có uống rượu/bia, bạn thường dùng khoảng bao nhiêu đơn vị uống chuẩn trong một ngày?</p>
+              <div class="choice-grid">
+                <div class="choice-card">
+                  <input type="radio" id="q2a" name="q2" value="0" />
+                  <label for="q2a">1 đến 2 đơn vị</label>
+                </div>
+                <div class="choice-card">
+                  <input type="radio" id="q2b" name="q2" value="1" />
+                  <label for="q2b">3 đến 4 đơn vị</label>
+                </div>
+                <div class="choice-card">
+                  <input type="radio" id="q2c" name="q2" value="2" />
+                  <label for="q2c">5 đến 6 đơn vị</label>
+                </div>
+                <div class="choice-card">
+                  <input type="radio" id="q2d" name="q2" value="3" />
+                  <label for="q2d">7 đến 9 đơn vị</label>
+                </div>
+                <div class="choice-card">
+                  <input type="radio" id="q2e" name="q2" value="4" />
+                  <label for="q2e">Từ 10 đơn vị trở lên</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="question" style="margin-top:16px;">
+              <h3>Câu 3. Uống nhiều trong một lần</h3>
+              <p>Bạn có thường uống từ 6 đơn vị chuẩn trở lên trong một lần không?</p>
+              <div class="choice-grid">
+                <div class="choice-card">
+                  <input type="radio" id="q3a" name="q3" value="0" />
+                  <label for="q3a">Không bao giờ</label>
+                </div>
+                <div class="choice-card">
+                  <input type="radio" id="q3b" name="q3" value="1" />
+                  <label for="q3b">Ít hơn mỗi tháng 1 lần</label>
+                </div>
+                <div class="choice-card">
+                  <input type="radio" id="q3c" name="q3" value="2" />
+                  <label for="q3c">Mỗi tháng</label>
+                </div>
+                <div class="choice-card">
+                  <input type="radio" id="q3d" name="q3" value="3" />
+                  <label for="q3d">Mỗi tuần</label>
+                </div>
+                <div class="choice-card">
+                  <input type="radio" id="q3e" name="q3" value="4" />
+                  <label for="q3e">Hằng ngày hoặc gần như hằng ngày</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="question" style="margin-top:16px;">
+              <h3>Câu 4. Khó kiểm soát việc uống</h3>
+              <p>Trong 12 tháng qua, bạn có bao giờ không thể dừng uống sau khi đã bắt đầu không?</p>
+              <div class="choice-grid">
+                <div class="choice-card">
+                  <input type="radio" id="q4a" name="q4" value="0" />
+                  <label for="q4a">Không bao giờ</label>
+                </div>
+                <div class="choice-card">
+                  <input type="radio" id="q4b" name="q4" value="1" />
+                  <label for="q4b">Ít hơn mỗi tháng 1 lần</label>
+                </div>
+                <div class="choice-card">
+                  <input type="radio" id="q4c" name="q4" value="2" />
+                  <label for="q4c">Mỗi tháng</label>
+                </div>
+                <div class="choice-card">
+                  <input type="radio" id="q4d" name="q4" value="3" />
+                  <label for="q4d">Mỗi tuần</label>
+                </div>
+                <div class="choice-card">
+                  <input type="radio" id="q4e" name="q4" value="4" />
+                  <label for="q4e">Hằng ngày hoặc gần như hằng ngày</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="question" style="margin-top:16px;">
+              <h3>Câu 5. Ảnh hưởng đến trách nhiệm thường ngày</h3>
+              <p>Trong 12 tháng qua, việc uống rượu/bia có làm bạn không hoàn thành công việc thường lệ không?</p>
+              <div class="choice-grid">
+                <div class="choice-card">
+                  <input type="radio" id="q5a" name="q5" value="0" />
+                  <label for="q5a">Không bao giờ</label>
+                </div>
+                <div class="choice-card">
+                  <input type="radio" id="q5b" name="q5" value="1" />
+                  <label for="q5b">Ít hơn mỗi tháng 1 lần</label>
+                </div>
+                <div class="choice-card">
+                  <input type="radio" id="q5c" name="q5" value="2" />
+                  <label for="q5c">Mỗi tháng</label>
+                </div>
+                <div class="choice-card">
+                  <input type="radio" id="q5d" name="q5" value="3" />
+                  <label for="q5d">Mỗi tuần</label>
+                </div>
+                <div class="choice-card">
+                  <input type="radio" id="q5e" name="q5" value="4" />
+                  <label for="q5e">Hằng ngày hoặc gần như hằng ngày</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="question" style="margin-top:16px;">
+              <h3>Câu 6. Có người góp ý về việc uống</h3>
+              <p>Trong 12 tháng qua, người thân hoặc nhân viên y tế có khuyên bạn giảm uống rượu/bia không?</p>
+              <div class="choice-grid">
+                <div class="choice-card">
+                  <input type="radio" id="q6a" name="q6" value="0" />
+                  <label for="q6a">Không</label>
+                </div>
+                <div class="choice-card">
+                  <input type="radio" id="q6b" name="q6" value="2" />
+                  <label for="q6b">Có, nhưng không trong 12 tháng gần đây</label>
+                </div>
+                <div class="choice-card">
+                  <input type="radio" id="q6c" name="q6" value="4" />
+                  <label for="q6c">Có, trong 12 tháng gần đây</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="question" style="margin-top:16px;">
+              <h3>Câu 7. Cảm giác hối tiếc hoặc có lỗi</h3>
+              <p>Trong 12 tháng qua, bạn có cảm thấy hối tiếc sau khi uống không?</p>
+              <div class="choice-grid">
+                <div class="choice-card">
+                  <input type="radio" id="q7a" name="q7" value="0" />
+                  <label for="q7a">Không bao giờ</label>
+                </div>
+                <div class="choice-card">
+                  <input type="radio" id="q7b" name="q7" value="1" />
+                  <label for="q7b">Ít hơn mỗi tháng 1 lần</label>
+                </div>
+                <div class="choice-card">
+                  <input type="radio" id="q7c" name="q7" value="2" />
+                  <label for="q7c">Mỗi tháng</label>
+                </div>
+                <div class="choice-card">
+                  <input type="radio" id="q7d" name="q7" value="3" />
+                  <label for="q7d">Mỗi tuần</label>
+                </div>
+                <div class="choice-card">
+                  <input type="radio" id="q7e" name="q7" value="4" />
+                  <label for="q7e">Hằng ngày hoặc gần như hằng ngày</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="question" style="margin-top:16px;">
+              <h3>Câu 8. Chấn thương hoặc sự cố liên quan đến rượu bia</h3>
+              <p>Đã từng có chấn thương cho bạn hoặc người khác do việc uống rượu/bia của bạn chưa?</p>
+              <div class="choice-grid">
+                <div class="choice-card">
+                  <input type="radio" id="q8a" name="q8" value="0" />
+                  <label for="q8a">Không</label>
+                </div>
+                <div class="choice-card">
+                  <input type="radio" id="q8b" name="q8" value="2" />
+                  <label for="q8b">Có, nhưng không trong 12 tháng gần đây</label>
+                </div>
+                <div class="choice-card">
+                  <input type="radio" id="q8c" name="q8" value="4" />
+                  <label for="q8c">Có, trong 12 tháng gần đây</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="alert error" id="step2Error"></div>
+
+            <div class="actions">
+              <button class="btn btn-secondary" type="button" id="backTo1">Quay lại</button>
+              <div class="actions-right">
+                <button class="btn btn-primary" type="button" id="toStep3">Xem kết quả</button>
+              </div>
+            </div>
+          </section>
+
+          <!-- STEP 3 -->
+          <section class="step-section" data-step="3">
+            <div class="score-box">
+              <div class="metric">
+                <div class="k">Tổng điểm</div>
+                <div class="v" id="totalScore">0</div>
+              </div>
+              <div class="metric">
+                <div class="k">Mức nguy cơ</div>
+                <div class="v" id="riskLevel" style="font-size:20px;">-</div>
+              </div>
+              <div class="metric">
+                <div class="k">Khuyến nghị</div>
+                <div class="v" id="shortAdvice" style="font-size:18px;">-</div>
+              </div>
+            </div>
+
+            <div class="result-box" id="resultBox">
+              <div class="result-title" id="resultTitle">Kết quả sàng lọc</div>
+              <p class="result-desc" id="resultDesc">Chưa có dữ liệu.</p>
+              <p class="result-note" id="resultNote" style="margin-top:10px;"></p>
+            </div>
+
+            <div class="field" style="margin-top:18px;">
+              <label for="note">Ghi chú thêm (nếu có)</label>
+              <textarea id="note" name="note" placeholder="Nhập ghi chú hoặc nhu cầu cần được tư vấn thêm"></textarea>
+            </div>
+
+            <div class="alert success" id="submitSuccess"></div>
+            <div class="alert error" id="submitError"></div>
+
+            <div class="actions">
+              <button class="btn btn-secondary" type="button" id="backTo2">Quay lại</button>
+              <div class="actions-right">
+                <button class="btn btn-ghost" type="button" id="saveLocalBtn">Lưu tạm trên máy</button>
+                <button class="btn btn-primary" type="submit" id="submitBtn">Gửi dữ liệu</button>
+              </div>
+            </div>
+          </section>
+        </form>
+      </main>
+    </div>
+  </div>
+
+  <script>
+    // ===== CẤU HÌNH =====
+    // Dán URL Web App của Google Apps Script vào đây sau khi bạn deploy:
+    const GAS_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwQyF_NSRiNcBt546ndqGfo71dBvvi22eaCX62qcWAFmM22APzPLuxmbhmpAgkK7JWo/exec";
+
+    const state = {
+      step: 1,
+      totalSteps: 3
+    };
+
+    const stepMeta = {
+      1: {
+        title: "Thông tin người tham gia",
+        desc: "Vui lòng nhập đầy đủ các thông tin bắt buộc (đánh dấu *)."
+      },
+      2: {
+        title: "Bộ câu hỏi sàng lọc",
+        desc: "Trả lời các câu hỏi dưới đây để hệ thống ước tính mức nguy cơ ban đầu."
+      },
+      3: {
+        title: "Kết quả và gửi dữ liệu",
+        desc: "Xem kết quả tính điểm và gửi thông tin về hệ thống lưu trữ."
+      }
+    };
+
+    const els = {
+      form: document.getElementById("screeningForm"),
+      progressBar: document.getElementById("progressBar"),
+      progressLabel: document.getElementById("progressLabel"),
+      stepTitle: document.getElementById("stepTitle"),
+      stepDesc: document.getElementById("stepDesc"),
+      nav1: document.getElementById("navStep1"),
+      nav2: document.getElementById("navStep2"),
+      nav3: document.getElementById("navStep3"),
+      step1Error: document.getElementById("step1Error"),
+      step2Error: document.getElementById("step2Error"),
+      submitSuccess: document.getElementById("submitSuccess"),
+      submitError: document.getElementById("submitError"),
+      totalScore: document.getElementById("totalScore"),
+      riskLevel: document.getElementById("riskLevel"),
+      shortAdvice: document.getElementById("shortAdvice"),
+      resultTitle: document.getElementById("resultTitle"),
+      resultDesc: document.getElementById("resultDesc"),
+      resultNote: document.getElementById("resultNote"),
+      resultBox: document.getElementById("resultBox"),
+      submitBtn: document.getElementById("submitBtn")
+    };
+
+    function showAlert(el, msg){
+      el.textContent = msg;
+      el.classList.add("show");
+    }
+
+    function hideAlert(el){
+      el.textContent = "";
+      el.classList.remove("show");
+    }
+
+    function setStep(step){
+      state.step = step;
+
+      document.querySelectorAll(".step-section").forEach(sec => {
+        sec.classList.toggle("active", Number(sec.dataset.step) === step);
+      });
+
+      [els.nav1, els.nav2, els.nav3].forEach((el, idx) => {
+        const n = idx + 1;
+        el.classList.remove("active", "done");
+        if(n < step) el.classList.add("done");
+        if(n === step) el.classList.add("active");
+      });
+
+      const percent = (step / state.totalSteps) * 100;
+      els.progressBar.style.width = percent + "%";
+      els.progressLabel.textContent = `Bước ${step} / ${state.totalSteps}`;
+      els.stepTitle.textContent = stepMeta[step].title;
+      els.stepDesc.textContent = stepMeta[step].desc;
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function getValue(name){
+      const field = document.querySelector(`[name="${name}"]:checked`) || document.querySelector(`[name="${name}"]`);
+      return field ? field.value.trim() : "";
+    }
+
+    function validateStep1(){
+      hideAlert(els.step1Error);
+      const required = [
+        { id:"fullName", label:"Họ và tên" },
+        { id:"dob", label:"Ngày sinh" },
+        { id:"phone", label:"Số điện thoại" },
+        { id:"ward", label:"Phường / Xã nơi sàng lọc" }
+      ];
+
+      for(const item of required){
+        const el = document.getElementById(item.id);
+        if(!el.value.trim()){
+          showAlert(els.step1Error, `Vui lòng nhập ${item.label}.`);
+          el.focus();
+          return false;
+        }
+      }
+
+      const gender = document.querySelector('input[name="gender"]:checked');
+      if(!gender){
+        showAlert(els.step1Error, "Vui lòng chọn giới tính.");
+        return false;
+      }
+
+      const phone = document.getElementById("phone").value.trim();
+      if(!/^(0|\+84)[0-9]{9,10}$/.test(phone)){
+        showAlert(els.step1Error, "Số điện thoại chưa đúng định dạng Việt Nam.");
+        document.getElementById("phone").focus();
+        return false;
+      }
+
+      return true;
+    }
+
+    function validateStep2(){
+      hideAlert(els.step2Error);
+      const questions = ["q1","q2","q3","q4","q5","q6","q7","q8"];
+      for(const q of questions){
+        if(!document.querySelector(`input[name="${q}"]:checked`)){
+          showAlert(els.step2Error, "Vui lòng trả lời đầy đủ tất cả câu hỏi.");
+          return false;
+        }
+      }
+      return true;
+    }
+
+    function calculateResult(){
+      const questions = ["q1","q2","q3","q4","q5","q6","q7","q8"];
+      let total = 0;
+      const detail = {};
+
+      questions.forEach(q => {
+        const checked = document.querySelector(`input[name="${q}"]:checked`);
+        const value = checked ? Number(checked.value) : 0;
+        detail[q] = value;
+        total += value;
+      });
+
+      let level = "";
+      let shortAdvice = "";
+      let title = "";
+      let desc = "";
+      let note = "";
+      let boxClass = "result-box";
+
+      if(total <= 7){
+        level = "Nguy cơ thấp";
+        shortAdvice = "Theo dõi định kỳ";
+        title = "Kết quả: Mức nguy cơ thấp";
+        desc = "Điểm sàng lọc hiện tại cho thấy nguy cơ ở mức thấp. Bạn nên tiếp tục duy trì hành vi lành mạnh, hạn chế uống rượu bia và theo dõi sức khỏe định kỳ.";
+        note = "Nếu có triệu chứng bất thường hoặc nhu cầu tư vấn, bạn vẫn nên liên hệ cơ sở y tế để được hỗ trợ thêm.";
+        boxClass += " low";
+      }else if(total <= 15){
+        level = "Nguy cơ trung bình";
+        shortAdvice = "Nên tư vấn thêm";
+        title = "Kết quả: Mức nguy cơ trung bình";
+        desc = "Điểm sàng lọc cho thấy bạn có dấu hiệu nguy cơ cần được quan tâm. Nên được tư vấn ngắn về giảm uống rượu bia và theo dõi thêm trong thời gian tới.";
+        note = "Khuyến khích giảm tần suất và số lượng uống, đồng thời cân nhắc trao đổi với nhân viên y tế nếu việc uống ảnh hưởng tới sinh hoạt hằng ngày.";
+        boxClass += " medium";
+      }else{
+        level = "Nguy cơ cao";
+        shortAdvice = "Cần tư vấn chuyên sâu";
+        title = "Kết quả: Mức nguy cơ cao";
+        desc = "Điểm sàng lọc cho thấy mức nguy cơ cao liên quan đến việc sử dụng rượu bia. Bạn nên được tư vấn chuyên sâu và đánh giá thêm bởi nhân viên y tế.";
+        note = "Nếu có dấu hiệu lệ thuộc, ảnh hưởng công việc, gia đình hoặc sức khỏe tâm thần/thể chất, nên liên hệ cơ sở y tế sớm.";
+        boxClass += " high";
+      }
+
+      els.totalScore.textContent = total;
+      els.riskLevel.textContent = level;
+      els.shortAdvice.textContent = shortAdvice;
+      els.resultTitle.textContent = title;
+      els.resultDesc.textContent = desc;
+      els.resultNote.textContent = note;
+      els.resultBox.className = boxClass;
+
+      return { total, level, shortAdvice, detail, title, desc, note };
+    }
+
+    function collectFormData(){
+  const result = calculateResult();
+  return {
+    submittedAt: new Date().toISOString(),
+    fullName: document.getElementById("fullName").value.trim(),
+    dob: document.getElementById("dob").value,
+    gender: getValue("gender"),
+    phone: document.getElementById("phone").value.trim(),
+    ward: document.getElementById("ward").value.trim(),
+    address: document.getElementById("address").value.trim(),
+    q1: getValue("q1"),
+    q2: getValue("q2"),
+    q3: getValue("q3"),
+    q4: getValue("q4"),
+    q5: getValue("q5"),
+    q6: getValue("q6"),
+    q7: getValue("q7"),
+    q8: getValue("q8"),
+    note: document.getElementById("note").value.trim(),
+    totalScore: result.total,
+    riskLevel: result.level,
+    shortAdvice: result.shortAdvice
+  };
+}
+    function saveLocal(){
+      const data = collectFormData();
+      localStorage.setItem("alcohol_screening_form_data", JSON.stringify(data));
+      alert("Đã lưu tạm dữ liệu trên trình duyệt của thiết bị này.");
+    }
+
+    function loadLocal(){
+      const raw = localStorage.getItem("alcohol_screening_form_data");
+      if(!raw) return;
+
+      try{
+        const data = JSON.parse(raw);
+        const textFields = ["fullName","dob","phone","district","ward","address","note"];
+        textFields.forEach(id => {
+          if(data[id] !== undefined && document.getElementById(id)){
+            document.getElementById(id).value = data[id];
+          }
+        });
+
+        ["gender","q1","q2","q3","q4","q5","q6","q7","q8"].forEach(name => {
+          if(data[name] !== undefined && data[name] !== ""){
+            const selector = `input[name="${name}"][value="${String(data[name])}"]`;
+            const input = document.querySelector(selector);
+            if(input) input.checked = true;
+          }
+        });
+
+        const allAnswered = ["q1","q2","q3","q4","q5","q6","q7","q8"].every(q => document.querySelector(`input[name="${q}"]:checked`));
+        if(allAnswered) calculateResult();
+      }catch(e){}
+    }
+
+    async function submitToGoogleSheets(data){
+      if(!GAS_WEB_APP_URL || GAS_WEB_APP_URL.includes("https://script.google.com/macros/s/AKfycbwQyF_NSRiNcBt546ndqGfo71dBvvi22eaCX62qcWAFmM22APzPLuxmbhmpAgkK7JWo/exec")){
+        throw new Error("Bạn chưa cấu hình URL Google Apps Script Web App.");
+      }
+
+      const response = await fetch(GAS_WEB_APP_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "text/plain;charset=utf-8"
+        },
+        body: JSON.stringify(data)
+      });
+
+      const text = await response.text();
+      // Bắt lỗi nếu Google Apps Script trả về chữ "Lỗi" hoặc HTML lỗi của Google
+      if(!response.ok || text.includes("Lỗi") || text.includes("Error") || text.includes("<html")){
+        throw new Error(text || "Không thể lưu dữ liệu vào hệ thống.");
+      }
+      return text;
+    }
+
+      const response = await fetch(GAS_WEB_APP_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "text/plain;charset=utf-8"
+        },
+        redirect: "follow",
+        body: JSON.stringify(data)
+      });
+
+      const text = await response.text();
+      if(!response.ok){
+        throw new Error(text || "Không thể gửi dữ liệu.");
+      }
+      return text;
+    }
+
+    document.getElementById("toStep2").addEventListener("click", () => {
+      if(validateStep1()) setStep(2);
+    });
+
+    document.getElementById("backTo1").addEventListener("click", () => setStep(1));
+
+    document.getElementById("toStep3").addEventListener("click", () => {
+      if(validateStep2()){
+        calculateResult();
+        setStep(3);
+      }
+    });
+
+    document.getElementById("backTo2").addEventListener("click", () => setStep(2));
+    document.getElementById("saveLocalBtn").addEventListener("click", saveLocal);
+
+    document.getElementById("screeningForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      hideAlert(els.submitSuccess);
+      hideAlert(els.submitError);
+
+      if(!validateStep1()){
+        setStep(1);
+        return;
+      }
+
+      if(!validateStep2()){
+        setStep(2);
+        return;
+      }
+
+      const payload = collectFormData();
+
+      try{
+        els.submitBtn.disabled = true;
+        els.submitBtn.textContent = "Đang gửi...";
+        await submitToGoogleSheets(payload);
+        localStorage.removeItem("alcohol_screening_form_data");
+        showAlert(els.submitSuccess, "Gửi dữ liệu thành công. Thông tin đã được lưu vào hệ thống Google Sheets trên Drive.");
+        els.form.reset();
+        els.totalScore.textContent = "0";
+        els.riskLevel.textContent = "-";
+        els.shortAdvice.textContent = "-";
+        els.resultTitle.textContent = "Kết quả sàng lọc";
+        els.resultDesc.textContent = "Dữ liệu đã được gửi thành công.";
+        els.resultNote.textContent = "";
+        els.resultBox.className = "result-box";
+        setStep(1);
+      }catch(err){
+        showAlert(els.submitError, err.message || "Có lỗi khi gửi dữ liệu.");
+      }finally{
+        els.submitBtn.disabled = false;
+        els.submitBtn.textContent = "Gửi dữ liệu";
+      }
+    });
+    const HCMC_NEW_WARDS = [
+    "Đặc khu Côn Đảo",
+      "Phường An Đông",
+      "Phường An Hội Đông",
+      "Phường An Hội Tây",
+      "Phường An Khánh",
+      "Phường An Lạc",
+      "Phường An Lợi Đông",
+      "Phường An Nhơn",
+      "Phường An Phú",
+      "Phường An Phú Đông",
+      "Phường Bà Rịa",
+      "Phường Bàn Cờ",
+      "Phường Bảy Hiền",
+      "Phường Bến Cát",
+      "Phường Bến Thành",
+      "Phường Bình An",
+      "Phường Bình Chiểu",
+      "Phường Bình Hòa",
+      "Phường Bình Hưng Hòa",
+      "Phường Bình Phú",
+      "Phường Bình Tây",
+      "Phường Bình Thắng",
+      "Phường Bình Tiên",
+      "Phường Bình Trị Đông",
+      "Phường Bình Trưng",
+      "Phường Cát Lái",
+      "Phường Cầu Kho",
+      "Phường Cầu Ông Lãnh",
+      "Phường Chánh Mỹ",
+      "Phường Chánh Nghĩa",
+      "Phường Chợ Lớn",
+      "Phường Chợ Quán",
+      "Phường Cô Giang",
+      "Phường Dĩ An",
+      "Phường Đa Kao",
+      "Phường Định Hòa",
+      "Phường Đông Hòa",
+      "Phường Gò Vấp",
+      "Phường Hạnh Thông",
+      "Phường Hiệp Bình",
+      "Phường Hiệp Thành",
+      "Phường Hòa Thạnh",
+      "Phường Hưng Phú",
+      "Phường Khánh Hội",
+      "Phường Kim Dinh",
+      "Phường Lái Thiêu",
+      "Phường Linh Xuân",
+      "Phường Long Bình",
+      "Phường Long Hương",
+      "Phường Long Phước",
+      "Phường Long Trường",
+      "Phường Mỹ Phước",
+      "Phường Nhiêu Lộc",
+      "Phường Phạm Ngũ Lão",
+      "Phường Phú Cường",
+      "Phường Phú Lâm",
+      "Phường Phú Lợi",
+      "Phường Phú Mỹ",
+      "Phường Phú Thọ",
+      "Phường Phú Thuận",
+      "Phường Phước Long",
+      "Phường Phước Thắng",
+      "Phường Rạch Dừa",
+      "Phường Rạch Ông",
+      "Phường Sài Gòn",
+      "Phường Sơn Kỳ",
+      "Phường Tam Bình",
+      "Phường Tân An",
+      "Phường Tân Chánh Hiệp",
+      "Phường Tân Định",
+      "Phường Tân Đông Hiệp",
+      "Phường Tân Hải",
+      "Phường Tân Hòa",
+      "Phường Tân Hưng",
+      "Phường Tân Kiểng",
+      "Phường Tân Mỹ",
+      "Phường Tân Phong",
+      "Phường Tân Phú",
+      "Phường Tân Phước",
+      "Phường Tân Phước Khánh",
+      "Phường Tân Quy",
+      "Phường Tân Sơn Hòa",
+      "Phường Tân Sơn Nhất",
+      "Phường Tân Thành",
+      "Phường Tân Thới Hiệp",
+      "Phường Tân Thuận",
+      "Phường Tân Uyên",
+      "Phường Tăng Nhơn Phú",
+      "Phường Thái Hòa",
+      "Phường Thảo Điền",
+      "Phường Thạnh Lộc",
+      "Phường Thạnh Xuân",
+      "Phường Thắng Tam",
+      "Phường Thới An",
+      "Phường Thới Hòa",
+      "Phường Thông Tây Hội",
+      "Phường Thuận An",
+      "Phường Thuận Giao",
+      "Phường Thủ Dầu Một",
+      "Phường Thủ Đức",
+      "Phường Tương Bình Hiệp",
+      "Phường Uyên Hưng",
+      "Phường Vĩnh Hội",
+      "Phường Vũng Tàu",
+      "Phường Xóm Chiếu",
+      "Phường Xóm Củi",
+      "Phường Xuân Hòa",
+      "Xã An Nhơn Tây",
+      "Xã An Thới Đông",
+      "Xã Bà Điểm",
+      "Xã Bạch Đằng",
+      "Xã Bàu Lâm",
+      "Xã Bình Chánh",
+      "Xã Bình Châu",
+      "Xã Bình Giã",
+      "Xã Bình Hưng",
+      "Xã Bình Khánh",
+      "Xã Bình Lợi",
+      "Xã Bình Mỹ",
+      "Xã Cần Giờ",
+      "Xã Châu Đức",
+      "Xã Châu Pha",
+      "Xã Củ Chi",
+      "Xã Đa Phước",
+      "Xã Đất Đỏ",
+      "Xã Hiệp Lực",
+      "Xã Hồ Tràm",
+      "Xã Hòa Hiệp",
+      "Xã Hưng Long",
+      "Xã Kim Long",
+      "Xã Lạc An",
+      "Xã Lê Minh Xuân",
+      "Xã Long Điền",
+      "Xã Long Hải",
+      "Xã Long Sơn",
+      "Xã Long Thới",
+      "Xã Ngãi Giao",
+      "Xã Nghĩa Thành",
+      "Xã Nhơn Đức",
+      "Xã Nhuận Đức",
+      "Xã Phạm Văn Hai",
+      "Xã Phong Phú",
+      "Xã Phú Hòa Đông",
+      "Xã Phước Hải",
+      "Xã Phước Hiệp",
+      "Xã Phước Kiển",
+      "Xã Phước Lộc",
+      "Xã Phước Thạnh",
+      "Xã Qui Đức",
+      "Xã Tân An Hội",
+      "Xã Tân Lâm",
+      "Xã Tân Nhựt",
+      "Xã Tân Phú Trung",
+      "Xã Tân Thạnh Đông",
+      "Xã Tân Thạnh Tây",
+      "Xã Tân Thông Hội",
+      "Xã Tân Vĩnh Lộc",
+      "Xã Thái Mỹ",
+      "Xã Thạnh An",
+      "Xã Thạnh Hội",
+      "Xã Trung An",
+      "Xã Trung Lập Thượng",
+      "Xã Vĩnh Lộc",
+      "Xã Vĩnh Lộc A",
+      "Xã Vĩnh Lộc B",
+      "Xã Xuân Sơn",
+      "Xã Xuyên Mộc"
+    ];
+
+  const wardTrigger = document.getElementById("wardTrigger");
+  const wardTriggerText = document.getElementById("wardTriggerText");
+  const wardPanel = document.getElementById("wardPanel");
+  const wardSearch = document.getElementById("wardSearch");
+  const wardList = document.getElementById("wardList");
+  const wardHidden = document.getElementById("ward");
+
+  function normalizeVN(str){
+    return (str || "")
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/đ/g, "d")
+      .trim();
+  }
+
+  function renderWardList(keyword = ""){
+    const q = normalizeVN(keyword);
+    const filtered = HCMC_NEW_WARDS.filter(item => normalizeVN(item).includes(q));
+
+    if(!filtered.length){
+      wardList.innerHTML = `<div class="combo-empty">Không tìm thấy phường / xã phù hợp.</div>`;
+      return;
+    }
+
+    wardList.innerHTML = filtered.map(item => `
+      <button type="button" class="combo-item" data-value="${item}">
+        ${item}
+      </button>
+    `).join("");
+
+    wardList.querySelectorAll(".combo-item").forEach(btn => {
+      btn.addEventListener("click", () => {
+        wardHidden.value = btn.dataset.value;
+        wardTriggerText.textContent = btn.dataset.value;
+        closeWardPanel();
+      });
+    });
+  }
+
+  function openWardPanel(){
+    wardPanel.classList.add("show");
+    wardTrigger.classList.add("open");
+    renderWardList(wardSearch.value);
+    setTimeout(() => wardSearch.focus(), 50);
+  }
+
+  function closeWardPanel(){
+    wardPanel.classList.remove("show");
+    wardTrigger.classList.remove("open");
+  }
+
+  wardTrigger.addEventListener("click", () => {
+    if(wardPanel.classList.contains("show")){
+      closeWardPanel();
+    }else{
+      openWardPanel();
+    }
+  });
+
+  wardSearch.addEventListener("input", e => {
+    renderWardList(e.target.value);
+  });
+
+  document.addEventListener("click", e => {
+    const combo = document.getElementById("wardCombo");
+    if(!combo.contains(e.target)){
+      closeWardPanel();
+    }
+  });
+
+  renderWardList();
+    loadLocal();
+    setStep(1);
+  </script>
+</body>
+</html>
