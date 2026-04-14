@@ -800,11 +800,11 @@
                 </div>
                 <div class="choice-card">
                   <input type="radio" id="q1c" name="q1" value="2" />
-                  <label for="q1c">1 đến 3 lần/tháng</label>
+                  <label for="q1c">2  - 4 lần/tháng</label>
                 </div>
                 <div class="choice-card">
                   <input type="radio" id="q1d" name="q1" value="3" />
-                  <label for="q1d">1 đến 4 lần/tuần</label>
+                  <label for="q1d">2 - 3 lần/tuần</label>
                 </div>
                 <div class="choice-card">
                   <input type="radio" id="q1e" name="q1" value="4" />
@@ -922,15 +922,23 @@
               <div class="choice-grid">
                 <div class="choice-card">
                   <input type="radio" id="q6a" name="q6" value="0" />
-                  <label for="q6a">Không</label>
+                  <label for="q6a">Không bao giờ</label>
                 </div>
                 <div class="choice-card">
-                  <input type="radio" id="q6b" name="q6" value="2" />
-                  <label for="q6b">Có, nhưng không trong 12 tháng gần đây</label>
+                  <input type="radio" id="q6b" name="q6" value="1" />
+                  <label for="q6b">Ít hơn mỗi tháng 1 lần</label>
                 </div>
                 <div class="choice-card">
-                  <input type="radio" id="q6c" name="q6" value="4" />
-                  <label for="q6c">Có, trong 12 tháng gần đây</label>
+                  <input type="radio" id="q6c" name="q6" value="2" />
+                  <label for="q6c">Mỗi tháng</label>
+                </div>
+                <div class="choice-card">
+                  <input type="radio" id="q6d" name="q6" value="3" />
+                  <label for="q6d">Mỗi tuần</label>
+                </div>
+                <div class="choice-card">
+                  <input type="radio" id="q6e" name="q6" value="4" />
+                  <label for="q6e">Hằng ngày hoặc gần như hằng ngày</label>
                 </div>
               </div>
             </div>
@@ -966,18 +974,27 @@
               <div class="choice-grid">
                 <div class="choice-card">
                   <input type="radio" id="q8a" name="q8" value="0" />
-                  <label for="q8a">Không</label>
+                  <label for="q8a">Không bao giờ</label>
                 </div>
                 <div class="choice-card">
-                  <input type="radio" id="q8b" name="q8" value="2" />
-                  <label for="q8b">Có, nhưng không trong 12 tháng gần đây</label>
+                  <input type="radio" id="q8b" name="q8" value="1" />
+                  <label for="q8b">Ít hơn mỗi tháng 1 lần</label>
                 </div>
                 <div class="choice-card">
-                  <input type="radio" id="q8c" name="q8" value="4" />
-                  <label for="q8c">Có, trong 12 tháng gần đây</label>
+                  <input type="radio" id="q8c" name="q8" value="2" />
+                  <label for="q8c">Mỗi tháng</label>
+                </div>
+                <div class="choice-card">
+                  <input type="radio" id="q8d" name="q8" value="3" />
+                  <label for="q8d">Mỗi tuần</label>
+                </div>
+                <div class="choice-card">
+                  <input type="radio" id="q8e" name="q8" value="4" />
+                  <label for="q8e">Hằng ngày hoặc gần như hằng ngày</label>
                 </div>
               </div>
             </div>
+
             <div class="question" style="margin-top:16px;">
               <h3>Câu 9. Từ trước đến nay, có bao giờ do uống rượu, bia mà Anh/Chị đã làm cho mình hay người khác bị thương không?</h3>
               <div class="choice-grid">
@@ -986,7 +1003,7 @@
                   <label for="q9a">Chưa bao giờ</label>
                 </div>
                 <div class="choice-card">
-                  <input type="radio" id="q9b" name="q9" value="2" />
+                  <input type="radio" id="q9b" name="q9" value="1" />
                   <label for="q9b">Có nhưng không phải trong 12 tháng vừa qua</label>
                 </div>
                 <div class="choice-card">
@@ -1046,18 +1063,12 @@
               <p class="result-note" id="resultNote" style="margin-top:10px;"></p>
             </div>
 
-            <div class="field" style="margin-top:18px;">
-              <label for="note">Ghi chú thêm (nếu có)</label>
-              <textarea id="note" name="note" placeholder="Nhập ghi chú hoặc nhu cầu cần được tư vấn thêm"></textarea>
-            </div>
-
             <div class="alert success" id="submitSuccess"></div>
             <div class="alert error" id="submitError"></div>
 
             <div class="actions">
               <button class="btn btn-secondary" type="button" id="backTo2">Quay lại</button>
               <div class="actions-right">
-                <button class="btn btn-ghost" type="button" id="saveLocalBtn">Lưu tạm trên máy</button>
                 <button class="btn btn-primary" type="submit" id="submitBtn">Gửi dữ liệu</button>
               </div>
             </div>
