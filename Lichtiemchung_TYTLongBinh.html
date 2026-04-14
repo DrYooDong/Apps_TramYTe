@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lịch Tiêm Chủng Mở Rộng - Trạm Y Tế P. Long Bình 2026</title>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f7f6;
+            color: #333;
+        }
+        .container {
+            max-width: 900px; /* Thu nhỏ chiều rộng tổng thể một chút */
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 20px;
+            font-size: 1.1em;
+        }
+        /* Chú giải màu sắc */
+        .legend {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+            padding: 10px;
+            background: #eef2f5;
+            border-radius: 5px;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: bold;
+        }
+        .color-box {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+        }
+        .color-tru-so {
+            background-color: #007bff; /* Xanh dương */
+        }
+        .color-tram-yte {
+            background-color: #28a745; /* Xanh lá */
+        }
+        /* Vùng hiển thị lịch */
+        #calendar {
+            margin-bottom: 30px;
+        }
+        /* Ghi đè CSS của FullCalendar để ô sự kiện gọn gàng hơn */
+        .fc .fc-daygrid-day-top {
+            flex-direction: row;
+            justify-content: center; /* Đưa số ngày ra giữa nếu muốn, hoặc để mặc định */
+        }
+        
+        /* Phần Footer ghi chú */
+        .footer-info {
+            border-top: 2px solid #ddd;
+            padding-top: 15px;
+            line-height: 1.6;
+            font-size: 0.95em;
+        }
+        .footer-info h3 {
+            margin-top: 0;
+            color: #d35400;
+        }
+        .address-box {
+            background: #fff9e6;
+            padding: 15px;
+            border-left: 5px solid #f39c12;
+            margin-bottom: 15px;
+        }
+        .contact-box {
+            background: #eafaf1;
+            padding: 15px;
+            border-left: 5px solid #2ecc71;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>LỊCH TIÊM CHỦNG MỞ RỘNG</h1>
+    <div class="subtitle">TRẠM Y TẾ P. LONG BÌNH - NĂM 2026</div>
+
+    <div class="legend">
+        <div class="legend-item">
+            <div class="color-box color-tru-so"></div>
+            <span>Trụ sở chính (107 Nguyễn Văn Tăng)</span>
+        </div>
+        <div class="legend-item">
+            <div class="color-box color-tram-yte"></div>
+            <span>Điểm Trạm Y Tế (1000C Nguyễn Xiển)</span>
+        </div>
+    </div>
+
+    <div id="calendar"></div>
+
+    <div class="footer-info">
+        <div class="address-box">
+            <h3>📍 Địa điểm tiêm chủng:</h3>
+            <ul>
+                <li><strong>Trụ sở chính:</strong> 107 Nguyễn Văn Tăng</li>
+                <li><strong>Điểm Trạm Y Tế:</strong> 1000C Nguyễn Xiển</li>
+            </ul>
+        </div>
+
+        <div class="contact-box">
+            <h3>📞 Thông tin liên hệ hỗ trợ:</h3>
+            <ul>
+                <li><strong>Bác sĩ tư vấn sau tiêm:</strong> BS. Kim Phụng - 0938.264.112</li>
+                <li><strong>CB tiêm chủng:</strong> ĐD. Ngọc Thu - 0909.175.077</li>
+                <li><strong>CB tiêm chủng:</strong> ĐD. Thái Yến - 096.484.4187</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+
+        // Dữ liệu ngày tiêm từ bảng
+        const dataTruSoChinh = {
+            1: [8, 15, 22], 2: [5, 12], 3: [5, 12, 19], 4: [2, 9, 16], 5: [7, 14, 21], 6: [4, 11, 18],
+            7: [2, 9, 23], 8: [6, 13, 20], 9: [10, 17, 24], 10: [1, 8, 22], 11: [5, 12, 19], 12: [3, 10, 24]
+        };
+
+        const dataTramYTe = {
+            1: [12, 13, 26], 2: [11], 3: [10, 17], 4: [14, 21], 5: [12, 19], 6: [16, 23],
+            7: [14, 28], 8: [11, 25], 9: [8, 22], 10: [13, 27], 11: [10, 24], 12: [15, 22]
+        };
+
+        const events = [];
+        const year = 2026;
+
+        // Hàm helper để tạo mảng sự kiện (events) cho FullCalendar
+        function generateEvents(data, title, color) {
+            for (let month in data) {
+                let days = data[month];
+                days.forEach(day => {
+                    // Format tháng/ngày luôn có 2 chữ số
+                    let m = month.toString().padStart(2, '0');
+                    let d = day.toString().padStart(2, '0');
+                    events.push({
+                        title: title,
+                        start: `${year}-${m}-${d}`,
+                        color: color,
+                        allDay: true
+                    });
+                });
+            }
+        }
+
+        // Tạo sự kiện cho 2 địa điểm
+        generateEvents(dataTruSoChinh, 'Tiêm: Trụ sở chính', '#007bff');
+        generateEvents(dataTramYTe, 'Tiêm: Điểm Trạm Y Tế', '#28a745');
+
+        // Khởi tạo FullCalendar
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth',
+            initialDate: '2026-04-01', // Set mặc định theo hình bạn gửi
+            locale: 'vi', // Hiển thị tiếng Việt
+            height: 'auto', // <-- Thiết lập này giúp các ô thu nhỏ vừa vặn với nội dung, loại bỏ khoảng trắng dư thừa
+            headerToolbar: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'dayGridMonth,dayGridWeek' 
+            },
+            buttonText: {
+                today: 'Hôm nay',
+                month: 'Tháng',
+                week: 'Tuần' 
+            },
+            events: events
+        });
+
+        calendar.render();
+    });
+</script>
+
+</body>
+</html>
