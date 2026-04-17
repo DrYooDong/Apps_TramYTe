@@ -26,7 +26,7 @@
             margin: 0; padding: 15px; line-height: 1.6;
         }
 
-        .container { max-width: 1100px; margin: 0 auto; }
+        .container { max-width: 1200px; margin: 0 auto; }
 
         .header-title {
             text-align: center; background: rgba(255, 255, 255, 0.95);
@@ -40,13 +40,14 @@
 
         /* TAB SYSTEM */
         .tabs {
-            display: flex; justify-content: center; gap: 10px;
+            display: flex; justify-content: center; gap: 8px;
             margin-bottom: -3px; position: relative; z-index: 10;
+            flex-wrap: wrap;
         }
         .tab-btn {
-            flex: 1; max-width: 300px; background-color: #fff; color: #888;
+            flex: 1; min-width: 200px; background-color: #fff; color: #888;
             border: 3px solid var(--primary-pastel); border-bottom: none;
-            padding: 12px 10px; font-size: 16px; font-weight: 800;
+            padding: 12px 10px; font-size: 15px; font-weight: 800;
             border-radius: 15px 15px 0 0; cursor: pointer; transition: all 0.3s;
         }
         .tab-btn:hover { background-color: var(--bg-pastel); }
@@ -68,6 +69,7 @@
         .card-box { background-color: var(--blue-pastel); border-radius: var(--border-radius); padding: 25px; border: 2px dashed #6eb5ff; }
         .card-box.screening { background-color: #fff3e0; border-color: #ffb74d; }
         h2 { color: #007bb5; margin-top: 0; display: flex; align-items: center; gap: 10px; font-size: 22px; }
+        h3 { color: #2e7d32; border-bottom: 2px solid #aed581; padding-bottom: 5px; margin-top: 30px;}
 
         .form-group { margin-bottom: 15px; }
         .form-group label { font-weight: 700; color: #333; margin-bottom: 8px; display: block; }
@@ -91,134 +93,49 @@
         .filter-section { display: flex; align-items: center; justify-content: center; gap: 15px; background: var(--secondary-pastel); padding: 15px; border-radius: 15px; margin-bottom: 20px; flex-wrap: wrap; }
         select { padding: 10px 15px; font-size: 16px; border: 2px solid var(--primary-pastel); border-radius: 15px; font-family: 'Nunito', sans-serif; font-weight: 600; outline: none; }
         
-        .table-wrapper { overflow-x: auto; }
-        table { width: 100%; border-collapse: collapse; background: white; border-radius: 10px; min-width: 800px; font-size: 15px; }
-        th, td { padding: 12px 15px; border-bottom: 1px solid #eee; text-align: left; vertical-align: top; }
-        th { background-color: #e8f5e9; color: #2e7d32; font-size: 16px; }
+        .table-wrapper { overflow-x: auto; margin-bottom: 20px;}
+        table { width: 100%; border-collapse: collapse; background: white; border-radius: 10px; min-width: 800px; font-size: 14.5px; }
+        th, td { padding: 12px 10px; border-bottom: 1px solid #eee; text-align: left; vertical-align: top; }
+        th { background-color: #e8f5e9; color: #2e7d32; font-size: 15px; font-weight: 800;}
         tbody tr:hover { background-color: #f1f8e9; }
         
         .badge-tcmr { background-color: #ff8a65; color: white; padding: 3px 8px; border-radius: 8px; font-size: 12px; font-weight: bold; margin-right: 5px; display: inline-block;}
         .badge-dv { background-color: #4fc3f7; color: white; padding: 3px 8px; border-radius: 8px; font-size: 12px; font-weight: bold; margin-right: 5px; display: inline-block;}
         .hidden { display: none !important; }
+        
+        .note-box { background-color: #fff9c4; border-left: 5px solid #fbc02d; padding: 15px; border-radius: 8px; margin-top: 10px; font-style: italic; }
 
         @media (max-width: 768px) {
             .tabs { flex-direction: column; margin-bottom: 10px; }
-            .tab-btn { border-radius: 15px; border: 3px solid var(--primary-pastel); margin-bottom: 5px; max-width: 100%; }
+            .tab-btn { border-radius: 15px; border: 3px solid var(--primary-pastel); margin-bottom: 5px; width: 100%; }
             .tab-btn.active { border-bottom: 3px solid var(--primary-dark); padding-bottom: 12px; }
         }
         /* GIAO DIỆN CHỌN MỐC TIÊM MỚI */
-        .milestone-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 15px;
-            margin-top: 15px;
-        }
-
-        .milestone-card {
-            background: #fff;
-            border: 2px solid #e0e0e0;
-            border-radius: 12px;
-            overflow: hidden;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .milestone-card:hover {
-            border-color: var(--primary-pastel);
-            box-shadow: 0 5px 15px rgba(255, 183, 178, 0.4);
-            transform: translateY(-2px);
-        }
-
-        .milestone-header {
-            background: var(--bg-pastel);
-            padding: 12px 15px;
-            font-size: 16px;
-            font-weight: 800;
-            color: var(--primary-dark);
-            display: flex;
-            align-items: center;
-            border-bottom: 2px solid #f5f5f5;
-        }
-
-        .milestone-header input[type="checkbox"] {
-            margin-right: 12px;
-            transform: scale(1.4);
-            accent-color: var(--primary-dark);
-        }
-
-        .milestone-body {
-            padding: 15px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .vaccine-row {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            font-size: 14.5px;
-            line-height: 1.4;
-        }
-
-        .vaccine-label {
-            flex-shrink: 0;
-            width: 75px;
-        }
-
-        .vaccine-list {
-            color: #444;
-            font-weight: 600;
-        }
+        .milestone-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 15px; margin-top: 15px; }
+        .milestone-card { background: #fff; border: 2px solid #e0e0e0; border-radius: 12px; overflow: hidden; cursor: pointer; transition: all 0.3s ease; display: flex; flex-direction: column; }
+        .milestone-card:hover { border-color: var(--primary-pastel); box-shadow: 0 5px 15px rgba(255, 183, 178, 0.4); transform: translateY(-2px); }
+        .milestone-header { background: var(--bg-pastel); padding: 12px 15px; font-size: 16px; font-weight: 800; color: var(--primary-dark); display: flex; align-items: center; border-bottom: 2px solid #f5f5f5; }
+        .milestone-header input[type="checkbox"] { margin-right: 12px; transform: scale(1.4); accent-color: var(--primary-dark); }
+        .milestone-body { padding: 15px; flex-grow: 1; display: flex; flex-direction: column; gap: 10px; }
+        .vaccine-row { display: flex; align-items: flex-start; gap: 10px; font-size: 14.5px; line-height: 1.4; }
+        .vaccine-label { flex-shrink: 0; width: 75px; }
+        .vaccine-list { color: #444; font-weight: 600; }
+        
         /* GIAO DIỆN SUB-TABS CHO BẢNG VẮC-XIN */
-        .sub-tabs-container {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-
-        .sub-tab-btn {
-            background-color: #f5f5f5;
-            color: #666;
-            border: 2px solid #ddd;
-            padding: 10px 25px;
-            font-size: 16px;
-            font-weight: 700;
-            border-radius: 30px;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-family: 'Nunito', sans-serif;
-        }
-
-        .sub-tab-btn:hover {
-            background-color: var(--secondary-pastel);
-            color: #2e7d32;
-            border-color: #aed581;
-        }
-
-        .sub-tab-btn.active {
-            background-color: #e8f5e9;
-            color: #2e7d32;
-            border-color: #4caf50;
-            box-shadow: 0 4px 10px rgba(76, 175, 80, 0.2);
-        }
-
-        .sub-tab-content {
-            display: none;
-            animation: fadeIn 0.4s;
-        }
-
-        .sub-tab-content.active {
-            display: block;
-        }
+        .sub-tabs-container { display: flex; justify-content: center; gap: 15px; margin-bottom: 20px; flex-wrap: wrap;}
+        .sub-tab-btn { background-color: #f5f5f5; color: #666; border: 2px solid #ddd; padding: 10px 25px; font-size: 15px; font-weight: 700; border-radius: 30px; cursor: pointer; transition: all 0.3s; font-family: 'Nunito', sans-serif; }
+        .sub-tab-btn:hover { background-color: var(--secondary-pastel); color: #2e7d32; border-color: #aed581; }
+        .sub-tab-btn.active { background-color: #e8f5e9; color: #2e7d32; border-color: #4caf50; box-shadow: 0 4px 10px rgba(76, 175, 80, 0.2); }
+        .sub-tab-content { display: none; animation: fadeIn 0.4s; }
+        .sub-tab-content.active { display: block; }
 
         /* Tùy chỉnh màu header bảng TCMR và Dịch vụ */
         #bang-tcmr th { background-color: #fff3e0; color: #e65100; border-bottom: 3px solid #ffcc80;}
         #bang-dichvu th { background-color: #e1f5fe; color: #0277bd; border-bottom: 3px solid #81d4fa;}
+        
+        .matrix-table th { background-color: #f3e5f5 !important; color: #6a1b9a !important; text-align: center; font-size: 13px;}
+        .matrix-table td { text-align: center; border-right: 1px solid #eee;}
+        .matrix-table td:first-child { text-align: left; font-weight: bold; background-color: #fafafa;}
     </style>
 </head>
 <body>
@@ -230,12 +147,12 @@
     </div>
 
     <div class="tabs">
-        <button class="tab-btn active" onclick="openTab(event, 'tab-sotiem')">👩‍⚕️ 1. Lên lịch tiêm cho bé</button>
+        <button class="tab-btn active" onclick="openTab(event, 'tab-sotiem')">👩‍⚕️ 1. Lên lịch tiêm</button>
         <button class="tab-btn" onclick="openTab(event, 'tab-sangloc')">📋 2. Sàng lọc trước tiêm</button>
-        <button class="tab-btn" onclick="openTab(event, 'tab-bangtiem')">📅 3. Bảng Vắc-xin chi tiết</button>
+        <button class="tab-btn" onclick="openTab(event, 'tab-bangtiem')">📅 3. Bảng Vắc-xin</button>
+        <button class="tab-btn" onclick="openTab(event, 'tab-luuy')">⚠️ 4. Các lưu ý khác</button>
     </div>
 
-    <!-- TAB 1: LÊN LỊCH CHÍNH XÁC -->
     <div id="tab-sotiem" class="tab-content active">
         <div class="card-box">
             <h2>👩‍⚕️ Bác sĩ tính lịch tiêm chuẩn cho bé</h2>
@@ -250,122 +167,85 @@
                 <label>✅ Mẹ đánh dấu các cột mốc bé <b>ĐÃ HOÀN THÀNH</b> nhé:</label>
                 <div class="milestone-grid">
                     <label class="milestone-card">
-                        <div class="milestone-header">
-                            <input type="checkbox" value="m_birth"> Mốc Sơ sinh
-                        </div>
+                        <div class="milestone-header"><input type="checkbox" value="m_birth"> Mốc Sơ sinh</div>
                         <div class="milestone-body">
-                            <div class="vaccine-row">
-                                <div class="vaccine-label"><span class="badge-tcmr">TCMR</span></div>
-                                <div class="vaccine-list">Lao (BCG), Viêm gan B</div>
-                            </div>
+                            <div class="vaccine-row"><div class="vaccine-label"><span class="badge-tcmr">TCMR</span></div><div class="vaccine-list">Lao (BCG), Viêm gan B</div></div>
                         </div>
                     </label>
 
                     <label class="milestone-card">
-                        <div class="milestone-header">
-                            <input type="checkbox" value="m_2"> Mốc 2 tháng
-                        </div>
+                        <div class="milestone-header"><input type="checkbox" value="m_2"> Mốc 2 tháng</div>
                         <div class="milestone-body">
-                            <div class="vaccine-row">
-                                <div class="vaccine-label"><span class="badge-tcmr">TCMR</span></div>
-                                <div class="vaccine-list">5in1 (mũi 1), Bại liệt uống (1), Rota uống (1)</div>
-                            </div>
-                            <div class="vaccine-row">
-                                <div class="vaccine-label"><span class="badge-dv">Dịch vụ</span></div>
-                                <div class="vaccine-list">6in1 (mũi 1), Phế cầu (1)</div>
-                            </div>
+                            <div class="vaccine-row"><div class="vaccine-label"><span class="badge-tcmr">TCMR</span></div><div class="vaccine-list">5in1 (1), Bại liệt uống (1)</div></div>
+                            <div class="vaccine-row"><div class="vaccine-label"><span class="badge-dv">Dịch vụ</span></div><div class="vaccine-list">6in1 (1), Rota (1), Phế cầu (1), Bexsero (1)</div></div>
                         </div>
                     </label>
 
                     <label class="milestone-card">
-                        <div class="milestone-header">
-                            <input type="checkbox" value="m_3"> Mốc 3 tháng
-                        </div>
+                        <div class="milestone-header"><input type="checkbox" value="m_3"> Mốc 3 tháng</div>
                         <div class="milestone-body">
-                            <div class="vaccine-row">
-                                <div class="vaccine-label"><span class="badge-tcmr">TCMR</span></div>
-                                <div class="vaccine-list">5in1 (mũi 2), Bại liệt uống (2), Rota uống (2)</div>
-                            </div>
-                            <div class="vaccine-row">
-                                <div class="vaccine-label"><span class="badge-dv">Dịch vụ</span></div>
-                                <div class="vaccine-list">6in1 (mũi 2), Phế cầu (2)</div>
-                            </div>
+                            <div class="vaccine-row"><div class="vaccine-label"><span class="badge-tcmr">TCMR</span></div><div class="vaccine-list">5in1 (2), Bại liệt uống (2)</div></div>
+                            <div class="vaccine-row"><div class="vaccine-label"><span class="badge-dv">Dịch vụ</span></div><div class="vaccine-list">6in1 (2), Rota (2), Phế cầu (2), Bexsero (2)</div></div>
                         </div>
                     </label>
 
                     <label class="milestone-card">
-                        <div class="milestone-header">
-                            <input type="checkbox" value="m_4"> Mốc 4 tháng
-                        </div>
+                        <div class="milestone-header"><input type="checkbox" value="m_4"> Mốc 4 tháng</div>
                         <div class="milestone-body">
-                            <div class="vaccine-row">
-                                <div class="vaccine-label"><span class="badge-tcmr">TCMR</span></div>
-                                <div class="vaccine-list">5in1 (mũi 3), Bại liệt uống (3)</div>
-                            </div>
-                            <div class="vaccine-row">
-                                <div class="vaccine-label"><span class="badge-dv">Dịch vụ</span></div>
-                                <div class="vaccine-list">6in1 (mũi 3), Phế cầu (3)</div>
-                            </div>
+                            <div class="vaccine-row"><div class="vaccine-label"><span class="badge-tcmr">TCMR</span></div><div class="vaccine-list">5in1 (3), Bại liệt uống (3)</div></div>
+                            <div class="vaccine-row"><div class="vaccine-label"><span class="badge-dv">Dịch vụ</span></div><div class="vaccine-list">6in1 (3), Rota (3), Phế cầu (3), Bexsero (3)</div></div>
                         </div>
                     </label>
 
                     <label class="milestone-card">
-                        <div class="milestone-header">
-                            <input type="checkbox" value="m_6"> Mốc 6 tháng
-                        </div>
+                        <div class="milestone-header"><input type="checkbox" value="m_6"> Mốc 6 tháng</div>
                         <div class="milestone-body">
-                            <div class="vaccine-row">
-                                <div class="vaccine-label"><span class="badge-dv">Dịch vụ</span></div>
-                                <div class="vaccine-list">Não mô cầu BC, Cúm mùa</div>
-                            </div>
+                            <div class="vaccine-row"><div class="vaccine-label"><span class="badge-dv">Dịch vụ</span></div><div class="vaccine-list">Não mô cầu BC, Cúm mùa</div></div>
                         </div>
                     </label>
 
                     <label class="milestone-card">
-                        <div class="milestone-header">
-                            <input type="checkbox" value="m_9"> Mốc 9 tháng
-                        </div>
+                        <div class="milestone-header"><input type="checkbox" value="m_9"> Mốc 9 tháng</div>
                         <div class="milestone-body">
-                            <div class="vaccine-row">
-                                <div class="vaccine-label"><span class="badge-tcmr">TCMR</span></div>
-                                <div class="vaccine-list">Sởi (mũi 1)</div>
-                            </div>
-                            <div class="vaccine-row">
-                                <div class="vaccine-label"><span class="badge-dv">Dịch vụ</span></div>
-                                <div class="vaccine-list">Não mô cầu ACYW, VNNB (Imojev)</div>
-                            </div>
+                            <div class="vaccine-row"><div class="vaccine-label"><span class="badge-tcmr">TCMR</span></div><div class="vaccine-list">Sởi đơn (MVVac)</div></div>
+                            <div class="vaccine-row"><div class="vaccine-label"><span class="badge-dv">Dịch vụ</span></div><div class="vaccine-list">Sởi-Quai bị-Rubella (Priorix), Não mô cầu ACYW, VNNB (Imojev)</div></div>
                         </div>
                     </label>
 
                     <label class="milestone-card">
-                        <div class="milestone-header">
-                            <input type="checkbox" value="m_12"> Mốc 12 tháng
-                        </div>
+                        <div class="milestone-header"><input type="checkbox" value="m_12"> Mốc 12 tháng</div>
                         <div class="milestone-body">
-                            <div class="vaccine-row">
-                                <div class="vaccine-label"><span class="badge-tcmr">TCMR</span></div>
-                                <div class="vaccine-list">VNNB Jevax (mũi 1, mũi 2 cách 1-2 tuần)</div>
-                            </div>
-                            <div class="vaccine-row">
-                                <div class="vaccine-label"><span class="badge-dv">Dịch vụ</span></div>
-                                <div class="vaccine-list">Viêm gan A, Thủy đậu</div>
-                            </div>
+                            <div class="vaccine-row"><div class="vaccine-label"><span class="badge-tcmr">TCMR</span></div><div class="vaccine-list">VNNB Jevax (1, 2)</div></div>
+                            <div class="vaccine-row"><div class="vaccine-label"><span class="badge-dv">Dịch vụ</span></div><div class="vaccine-list">Viêm gan A, Thủy đậu, Sởi-Quai bị-Rubella (MMR II)</div></div>
                         </div>
                     </label>
 
                     <label class="milestone-card">
-                        <div class="milestone-header">
-                            <input type="checkbox" value="m_18"> Mốc 18 tháng
-                        </div>
+                        <div class="milestone-header"><input type="checkbox" value="m_18"> Mốc 18 tháng</div>
                         <div class="milestone-body">
-                            <div class="vaccine-row">
-                                <div class="vaccine-label"><span class="badge-tcmr">TCMR</span></div>
-                                <div class="vaccine-list">Nhắc 5in1, Sởi-Rubella / Sởi (mũi 2)</div>
-                            </div>
-                            <div class="vaccine-row">
-                                <div class="vaccine-label"><span class="badge-dv">Dịch vụ</span></div>
-                                <div class="vaccine-list">Nhắc 6in1, Sởi-Quai bị-Rubella (MMR)</div>
-                            </div>
+                            <div class="vaccine-row"><div class="vaccine-label"><span class="badge-tcmr">TCMR</span></div><div class="vaccine-list">Nhắc 5in1, Sởi-Rubella</div></div>
+                            <div class="vaccine-row"><div class="vaccine-label"><span class="badge-dv">Dịch vụ</span></div><div class="vaccine-list">Nhắc 6in1, Phế cầu (nhắc)</div></div>
+                        </div>
+                    </label>
+                    
+                    <label class="milestone-card">
+                        <div class="milestone-header"><input type="checkbox" value="m_2y"> Mốc 2 tuổi</div>
+                        <div class="milestone-body">
+                            <div class="vaccine-row"><div class="vaccine-label"><span class="badge-dv">Dịch vụ</span></div><div class="vaccine-list">Thương hàn (Typhim Vi), Tả (mOrcvax)</div></div>
+                        </div>
+                    </label>
+
+                    <label class="milestone-card">
+                        <div class="milestone-header"><input type="checkbox" value="m_4y"> Mốc 4 tuổi</div>
+                        <div class="milestone-body">
+                            <div class="vaccine-row"><div class="vaccine-label"><span class="badge-dv">Dịch vụ</span></div><div class="vaccine-list">Sốt xuất huyết (Qdenga), Nhắc Bạch hầu-ho gà-uốn ván</div></div>
+                        </div>
+                    </label>
+                    
+                    <label class="milestone-card">
+                        <div class="milestone-header"><input type="checkbox" value="m_9y"> Mốc 9 tuổi</div>
+                        <div class="milestone-body">
+                            <div class="vaccine-row"><div class="vaccine-label"><span class="badge-dv">Dịch vụ</span></div><div class="vaccine-list">HPV (Gardasil / Gardasil 9)</div></div>
                         </div>
                     </label>
                 </div>
@@ -376,7 +256,6 @@
         </div>
     </div>
 
-    <!-- TAB 2: KHÁM SÀNG LỌC -->
     <div id="tab-sangloc" class="tab-content">
         <div class="card-box screening">
             <h2 style="color: #e65100;">📋 Phiếu Khám Sàng Lọc Trước Tiêm</h2>
@@ -390,179 +269,274 @@
         </div>
     </div>
 
-    <!-- TAB 3: BẢNG TRA CỨU ĐẦY ĐỦ -->
     <div id="tab-bangtiem" class="tab-content">
-        <h2 style="color: #2e7d32; margin-bottom: 15px;">📅 Bảng Vắc-xin Đầy Đủ Nhất</h2>
+        <h2 style="color: #2e7d32; margin-bottom: 15px;">📅 Bảng Vắc-xin Đầy Đủ</h2>
         
-<div class="filter-section">
-    <label>Lọc độ tuổi:</label>
-    <select id="ageFilter" onchange="filterTable()">
-        <option value="all">🌈 Hiển thị tất cả</option>
-        <option value="duoi_1">🍼 Trẻ dưới 1 tuổi</option>
-        <option value="1_den_2">🧸 Trẻ từ 1 - 2 tuổi</option>
-        <option value="tren_2">🏃 Trẻ trên 2 tuổi & Vị thành niên</option>
-        <option value="nguoi_lon">👩 Người lớn & Phụ nữ mang thai</option>
-    </select>
-</div>
+        <div class="filter-section">
+            <label>Lọc độ tuổi:</label>
+            <select id="ageFilter" onchange="filterTable()">
+                <option value="all">🌈 Hiển thị tất cả</option>
+                <option value="duoi_1">🍼 Trẻ dưới 1 tuổi</option>
+                <option value="1_den_2">🧸 Trẻ từ 1 - 2 tuổi</option>
+                <option value="tren_2">🏃 Trẻ trên 2 tuổi & Vị thành niên</option>
+                <option value="nguoi_lon">👩 Người lớn & Phụ nữ mang thai</option>
+            </select>
+        </div>
 
-<div class="sub-tabs-container">
-    <button class="sub-tab-btn active" onclick="openSubTab(event, 'bang-tcmr')"><span class="badge-tcmr">TCMR</span> Theo Sở Y Tế (HCDC)</button>
-    <button class="sub-tab-btn" onclick="openSubTab(event, 'bang-dichvu')"><span class="badge-dv">DỊCH VỤ</span> Theo VNVC</button>
-</div>
+        <div class="sub-tabs-container">
+            <button class="sub-tab-btn active" onclick="openSubTab(event, 'bang-tcmr')"><span class="badge-tcmr">TCMR</span> Tiêm Chủng Mở Rộng</button>
+            <button class="sub-tab-btn" onclick="openSubTab(event, 'bang-dichvu')"><span class="badge-dv">DỊCH VỤ</span> Tiêm Chủng Dịch Vụ</button>
+        </div>
 
-<div id="bang-tcmr" class="sub-tab-content active table-wrapper">
-    <table class="vaccine-table">
-        <thead>
-            <tr>
-                <th width="30%">Tên Vắc-xin (TCMR)</th>
-                <th width="25%">Phòng Bệnh</th>
-                <th width="45%">Lịch Tiêm Chủng (QĐ BYT/HCDC)</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr data-age="duoi_1">
-                <td><strong>Vắc-xin Lao (BCG)</strong></td>
-                <td>Bệnh Lao</td>
-                <td>Tiêm 1 lần cho trẻ trong vòng 1 tháng sau khi sinh.</td>
-            </tr>
-            <tr data-age="duoi_1">
-                <td><strong>Vắc-xin Viêm gan B đơn giá</strong></td>
-                <td>Viêm gan vi-rút B</td>
-                <td>Liều sơ sinh: Tiêm trong vòng 24 giờ sau khi sinh.</td>
-            </tr>
-            <tr data-age="duoi_1,1_den_2">
-                <td><strong>Vắc-xin Phối hợp - 5in1 (SII)</strong><br><em>(Chứa thành phần: Bạch hầu, Ho gà, Uốn ván, Viêm gan B, Hib)</em></td>
-                <td>Bạch hầu, Ho gà, Uốn ván, Viêm gan B, Hib</td>
-                <td>
-                    <strong>Độ tuổi:</strong> Từ 2 tháng đến 24 tháng tuổi.<br>
-                    <strong>Dưới 1 tuổi:</strong><br>- Lần 1: Trẻ đủ 2 tháng.<br>- Lần 2 & 3: Cách nhau ít nhất 1 tháng.<br><strong>Trẻ dưới 2 tuổi:</strong> Tiêm nhắc lại khi đủ 18 tháng tuổi.</td>
-            </tr>
-            <tr data-age="duoi_1">
-                <td><strong>Vắc-xin Bại liệt - Uống (bOPV) & Tiêm (IPV)</strong></td>
-                <td>Bệnh Bại liệt</td>
-                <td>
-                    <strong>Độ tuổi:</strong> Từ 2 tháng đến 24 tháng tuổi.<br>
-                    <strong>Uống (bOPV):</strong> Lần 1 (2 tháng), Lần 2 (3 tháng), Lần 3 (4 tháng).<br><strong>Tiêm (IPV):</strong> Mũi 1 (5 tháng), Mũi 2 (9 tháng).</td>
-            </tr>
-            <tr data-age="duoi_1,1_den_2">
-                <td><strong>Vắc-xin Rota (Rotavin)</strong></td>
-                <td>Tiêu chảy do vi-rút Rota</td>
-                <td>
-                    <strong>Độ tuổi:</strong> Từ 2 tháng đến 6 tháng tuổi.<br>
-                    <strong>Lần 1:</strong> 2 tháng.<br>
-                    <strong>Lần 2:</strong> 3 tháng.</td>
-            </tr>
-            <tr data-age="duoi_1,1_den_2">
-                <td><strong>Vắc-xin Sởi đơn (MVvax) & Sởi-Rubella (MR)</strong></td>
-                <td>Sởi, Rubella</td>
-                <td>
-                    <strong>Độ tuổi:</strong> MVvax (từ 9 đến 12 tháng), MR (từ 18 tháng đến 5 tuổi).<br>
-                    <strong>Đủ 9 tháng:</strong> Tiêm Vắc-xin Sởi đơn giá.<br><strong>Đủ 18 tháng:</strong> Tiêm Vắc-xin phối hợp Sởi - Rubella.</td>
-            </tr>
-            <tr data-age="1_den_2,tren_2">
-                <td><strong>Vắc-xin Viêm não Nhật Bản B (Jevax)</strong></td>
-                <td>Viêm não Nhật Bản B</td>
-                <td>
-                    <strong>Độ tuổi:</strong> Từ 12 tháng đến 5 tuổi<br>
-                    <strong>Lần 1:</strong> Đủ 1 tuổi.<br>
-                    <strong>Lần 2:</strong> 1 - 2 tuần sau lần 1.<br>
-                    <strong>Lần 3:</strong> 1 năm sau lần 2.</td>
-            </tr>
-            <tr data-age="duoi_1,1_den_2,tren_2">
-                <td><strong>Vắc-xin DPT & Td (DPTw)</strong></td>
-                <td>Bạch hầu, Uốn ván +/- Ho gà</td>
-                <td>
-                    <strong>Độ tuổi:</strong> Từ 18 tháng đến 48 tháng tuổi<br>
-                    <strong>DPT</strong> 18 tháng.<br>
-                    <strong>Td</strong> 7 tuổi.</td>
-            </tr>
-            <tr data-age="nguoi_lon">
-                <td><strong>Vắc-xin Uốn ván đơn giá</strong></td>
-                <td>Uốn ván (Mẹ & Sơ sinh)</td>
-                <td><strong>Phụ nữ có thai:</strong> Tiêm lần 1 sớm khi có thai lần đầu. Lần 2 cách ít nhất 1 tháng. (Và các mũi nhắc lại theo tiền sử tiêm).</td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+        <div id="bang-tcmr" class="sub-tab-content active table-wrapper">
+            <table class="vaccine-table">
+                <thead>
+                    <tr>
+                        <th width="5%">STT</th>
+                        <th width="20%">Tên vắc xin</th>
+                        <th width="25%">Độ tuổi tiêm chủng</th>
+                        <th width="20%">Phòng bệnh</th>
+                        <th width="30%">Lịch tiêm</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-age="duoi_1">
+                        <td>1</td><td><strong>BCG</strong></td><td>Từ sơ sinh đến tròn 12 tháng tuổi</td><td>Phòng bệnh Lao</td>
+                        <td>Tiêm 1 mũi ngay sau sinh càng sớm càng tốt</td>
+                    </tr>
+                    <tr data-age="duoi_1,1_den_2,tren_2">
+                        <td>2</td><td><strong>Viêm gan B</strong></td><td>Trẻ sơ sinh và trẻ em đến tròn 10 tuổi: liều 10mcg/0.5ml<br>Trẻ lớn trên 10 tuổi và người lớn: 20mcg/1ml</td><td>Phòng bệnh viêm gan B</td>
+                        <td>Liều sơ sinh: tiêm trong vòng 24 giờ sau khi sinh<br>Tiêm lần 1: khi trẻ đủ 02 tháng tuổi<br>Tiêm lần 2: ít nhất 01 tháng sau lần 1<br>Tiêm lần 3: ít nhất 01 tháng sau lần 2</td>
+                    </tr>
+                    <tr data-age="duoi_1,1_den_2,tren_2,nguoi_lon">
+                        <td>3</td><td><strong>bOPV</strong></td><td>Trẻ em từ 2 tháng tuổi trở lên và người lớn</td><td>Phòng bệnh bại liệt type 1,3</td>
+                        <td>Uống lần 1: khi trẻ đủ 02 tháng tuổi<br>Uống lần 2: ít nhất 01 tháng sau lần 1<br>Uống lần 3: ít nhất 01 tháng sau lần 2</td>
+                    </tr>
+                    <tr data-age="duoi_1,1_den_2,tren_2,nguoi_lon">
+                        <td>4</td><td><strong>IPV</strong></td><td>Trẻ em từ 2 tháng tuổi trở lên và người lớn</td><td>Phòng bệnh bại liệt type 1,2,3</td>
+                        <td>Tiêm lần 1: khi trẻ đủ 5 tháng tuổi<br>Tiêm lần 2: khi trẻ đủ 9 tháng tuổi<br>(Khoảng cách tối thiểu giữa các mũi là 1 tháng)</td>
+                    </tr>
+                    <tr data-age="duoi_1,1_den_2,tren_2">
+                        <td>5</td><td><strong>SII (5in1)</strong></td><td>Trẻ em từ 2 tháng đến dưới 5 tuổi</td><td>Phòng Viêm gan B - Bạch hầu - Ho gà - Uốn ván - Hib</td>
+                        <td>Tiêm lần 1: đủ 02 tháng tuổi<br>Tiêm lần 2: ít nhất 01 tháng sau lần 1<br>Tiêm lần 3: ít nhất 01 tháng sau lần 2<br>Tiêm nhắc lại khi trẻ đủ 18 tháng tuổi</td>
+                    </tr>
+                    <tr data-age="duoi_1,1_den_2,tren_2,nguoi_lon">
+                        <td>6</td><td><strong>MVVAC (Sởi)</strong></td><td>Từ 9 tháng tuổi trở lên và người lớn (khi có dịch có thể tiêm lúc 6 tháng)</td><td>Phòng bệnh sởi</td>
+                        <td>Tiêm 1 mũi khi trẻ đủ 9 tháng tuổi</td>
+                    </tr>
+                    <tr data-age="1_den_2,tren_2,nguoi_lon">
+                        <td>7</td><td><strong>MRVAC</strong></td><td>Từ 12 tháng trở lên và Người lớn</td><td>Phòng bệnh sởi-rubella</td>
+                        <td>Tiêm 1 mũi khi trẻ đủ 18 tháng tuổi</td>
+                    </tr>
+                    <tr data-age="1_den_2,tren_2,nguoi_lon">
+                        <td>8</td><td><strong>Vắc xin JEVAX (Việt Nam)</strong></td><td>Từ tròn 12 tháng trở lên và người lớn</td><td>Phòng bệnh Viêm não nhật bản</td>
+                        <td>Lịch tiêm 3 mũi:<br>Mũi 1: lần tiêm đầu tiên<br>Mũi 2: 1-2 tuần sau mũi 1<br>Mũi 3: 1 năm sau mũi 1<br>Tiêm nhắc mỗi 3 năm cho đến khi đủ 15 tuổi</td>
+                    </tr>
+                    <tr data-age="duoi_1,1_den_2,tren_2">
+                        <td>9</td><td><strong>DPT</strong></td><td>Trẻ em từ tròn 6 tuần đến 6 tuổi</td><td>Phòng bệnh Bạch hầu - Ho gà - Uốn ván hấp phụ</td>
+                        <td>Tiêm 1 mũi cho trẻ từ đủ 18 tháng đến 24 tháng tuổi và để tiêm bù cho trẻ dưới 48 tháng chưa tiêm đủ.</td>
+                    </tr>
+                    <tr data-age="nguoi_lon">
+                        <td>10</td><td><strong>Vắc xin uốn ván hấp phụ (TT)</strong></td><td>Phụ nữ có thai</td><td>Phòng bệnh uốn ván</td>
+                        <td><strong>Mang thai lần 1:</strong> 2 mũi (Mũi 1: sớm khi có thai, Mũi 2: cách mũi 1 ít nhất 1 tháng, trước dự sinh 1 tháng)<br><strong>Mang thai lần 2,3,4:</strong> 1 mũi trước dự sinh 1 tháng<br><strong>Người phơi nhiễm:</strong> Tùy lịch sử tiêm (xem chi tiết QĐ).</td>
+                    </tr>
+                    <tr data-age="tren_2,nguoi_lon">
+                        <td>11</td><td><strong>Uốn ván - Bạch hầu giảm liều (Td)</strong></td><td>Trẻ em từ 7 tuổi trở lên và người lớn</td><td>Phòng bệnh uốn ván và bạch hầu</td>
+                        <td>Tiêm 1 mũi khi trẻ đủ 7 tuổi</td>
+                    </tr>
+                    <tr data-age="tren_2,nguoi_lon">
+                        <td>12</td><td><strong>COVID19</strong></td><td>Trẻ em từ 5 tuổi trở lên và người lớn</td><td>Vắc xin phòng COVID-19</td>
+                        <td>Mũi 1: lần tiêm đầu tiên<br>Mũi 2: 1 tháng sau mũi 1</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-<div id="bang-dichvu" class="sub-tab-content table-wrapper">
-    <table class="vaccine-table">
-        <thead>
-            <tr>
-                <th width="30%">Tên Vắc-xin (Dịch vụ)</th>
-                <th width="25%">Phòng Bệnh</th>
-                <th width="45%">Lịch Tiêm Chủng (Theo VNVC)</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr data-age="duoi_1,1_den_2">
-                <td><strong>Infanrix Hexa / Hexaxim (6in1)</strong></td>
-                <td>Bạch hầu, Ho gà, Uốn ván, Bại liệt, Hib, Viêm gan B</td>
-                <td><strong>2, 3, 4 tháng tuổi:</strong> Tiêm 3 mũi cơ bản.<br><strong>16-18 tháng tuổi:</strong> Tiêm nhắc mũi 4.</td>
-            </tr>
-            <tr data-age="duoi_1">
-                <td><strong>Rotarix / Rotateq / Rotavin</strong></td>
-                <td>Tiêu chảy do Rota virus</td>
-                <td><strong>Từ 6 tuần tuổi:</strong> Uống 2 hoặc 3 liều tùy loại (cách nhau tối thiểu 4 tuần). Hoàn thành trước 6 hoặc 8 tháng tuổi.</td>
-            </tr>
-            <tr data-age="duoi_1,1_den_2,tren_2,nguoi_lon">
-                <td><strong>Synflorix / Prevenar 13</strong></td>
-                <td>Viêm phổi, viêm màng não, viêm tai giữa do Phế cầu</td>
-                <td><strong>Từ 6 tuần tuổi:</strong> Lịch tiêm 3 hoặc 4 mũi tùy độ tuổi bắt đầu tiêm. Người lớn tiêm 1 mũi Prevenar 13 duy nhất.</td>
-            </tr>
-            <tr data-age="duoi_1,1_den_2,tren_2">
-                <td><strong>Mengoc-BC</strong></td>
-                <td>Viêm màng não mô cầu B+C</td>
-                <td><strong>Từ 6 tháng tuổi đến 45 tuổi:</strong> Lịch tiêm 2 mũi cách nhau ít nhất 45 ngày.</td>
-            </tr>
-            <tr data-age="duoi_1,1_den_2,tren_2">
-                <td><strong>Menactra</strong></td>
-                <td>Viêm màng não mô cầu A,C,Y,W</td>
-                <td><strong>Từ 9 tháng đến 23 tháng:</strong> Tiêm 2 liều cách nhau 3 tháng.<br><strong>Từ 2 tuổi - 55 tuổi:</strong> Tiêm 1 liều.</td>
-            </tr>
-            <tr data-age="duoi_1,1_den_2,tren_2,nguoi_lon">
-                <td><strong>Vaxigrip Tetra / GCFLU Quadrivalent</strong></td>
-                <td>Bệnh Cúm mùa</td>
-                <td><strong>Từ 6 tháng tuổi:</strong> Trẻ dưới 9 tuổi tiêm lần đầu cần 2 mũi cách 1 tháng. Sau đó nhắc 1 mũi mỗi năm.</td>
-            </tr>
-            <tr data-age="duoi_1,1_den_2,tren_2">
-                <td><strong>Imojev</strong></td>
-                <td>Viêm não Nhật Bản</td>
-                <td><strong>Từ 9 tháng tuổi:</strong> Mũi 1. Mũi 2 nhắc lại cách mũi 1 ít nhất 1 năm (người lớn chỉ cần 1 mũi).</td>
-            </tr>
-            <tr data-age="duoi_1,1_den_2,tren_2,nguoi_lon">
-                <td><strong>MMR II / Priorix</strong></td>
-                <td>Sởi - Quai bị - Rubella</td>
-                <td><strong>Trẻ từ 9 hoặc 12 tháng tuổi:</strong> Phác đồ 2 mũi. Khuyến cáo mũi 2 lúc 4-6 tuổi (hoặc cách 3 tháng/3 năm tùy độ tuổi bắt đầu).</td>
-            </tr>
-            <tr data-age="duoi_1,1_den_2,tren_2,nguoi_lon">
-                <td><strong>Varivax / Varilrix</strong></td>
-                <td>Thủy đậu</td>
-                <td><strong>Từ 9 tháng tuổi (Varilrix) hoặc 12 tháng tuổi (Varivax):</strong> Tiêm 2 mũi cách nhau 1-3 tháng tùy loại và độ tuổi.</td>
-            </tr>
-            <tr data-age="1_den_2,tren_2,nguoi_lon">
-                <td><strong>Avaxim / Havax</strong></td>
-                <td>Viêm gan A</td>
-                <td><strong>Từ 12 tháng tuổi:</strong> Tiêm 2 mũi cách nhau ít nhất 6 tháng.</td>
-            </tr>
-            <tr data-age="tren_2,nguoi_lon">
-                <td><strong>Typhim Vi</strong></td>
-                <td>Thương hàn</td>
-                <td><strong>Từ 2 tuổi trở lên:</strong> Tiêm 1 mũi. Nhắc lại mỗi 3 năm nếu có nguy cơ.</td>
-            </tr>
-            <tr data-age="tren_2,nguoi_lon">
-                <td><strong>mORCVAX</strong></td>
-                <td>Bệnh Tả</td>
-                <td><strong>Từ 2 tuổi trở lên:</strong> Uống 2 liều cách nhau 14 ngày. Nhắc lại trước mùa dịch.</td>
-            </tr>
-            <tr data-age="tren_2,nguoi_lon">
-                <td><strong>Gardasil / Gardasil 9</strong></td>
-                <td>Ung thư cổ tử cung, sùi mào gà (HPV)</td>
-                <td><strong>Nam/Nữ từ 9 - 26 tuổi (hoặc đến 45 tuổi tùy loại):</strong> Phác đồ 2 hoặc 3 mũi tùy thời điểm bắt đầu tiêm.</td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+        <div id="bang-dichvu" class="sub-tab-content">
+            <div class="table-wrapper">
+                <table class="vaccine-table">
+                    <thead>
+                        <tr>
+                            <th width="5%">STT</th>
+                            <th width="20%">Tên vắc xin</th>
+                            <th width="25%">Độ tuổi tiêm chủng</th>
+                            <th width="20%">Phòng bệnh</th>
+                            <th width="30%">Lịch tiêm</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr data-age="duoi_1,1_den_2,tren_2,nguoi_lon">
+                            <td>1</td><td><strong>Gene-HBvax / Heberbiovac</strong></td><td>Trẻ sơ sinh đến 10 tuổi (10mcg)<br>Trên 10 tuổi & người lớn (20mcg)</td><td>Phòng bệnh viêm gan B</td>
+                            <td>Lịch 0-1-6 tháng cơ bản<br>Hoặc 0-1-2-12 tháng (nguy cơ cao)</td>
+                        </tr>
+                        <tr data-age="duoi_1,1_den_2">
+                            <td>3</td><td><strong>Infanrix Hexa / Hexaxim</strong></td><td>Từ tròn 6 tuần đến tròn 24 tháng</td><td>Phòng Viêm gan B, Bại liệt, Bạch hầu, Ho gà, Uốn ván, Hib</td>
+                            <td>Mũi 1: lần đầu<br>Mũi 2: 1 tháng sau mũi 1<br>Mũi 3: 1 tháng sau mũi 2<br>Mũi 4: cách mũi 3 là 12 tháng (tối thiểu 6 tháng)</td>
+                        </tr>
+                        <tr data-age="duoi_1,1_den_2,tren_2">
+                            <td>5</td><td><strong>Tetraxim</strong></td><td>Từ 2 tháng đến 13 tuổi</td><td>Phòng Bại liệt, Bạch hầu, Ho gà, Uốn ván</td>
+                            <td>Mũi 1, 2, 3: cách nhau 1 tháng<br>Mũi 4: 1 năm sau mũi 3<br>Mũi 5: 3 năm sau mũi 4 (trẻ 4-6 tuổi)</td>
+                        </tr>
+                        <tr data-age="duoi_1">
+                            <td>6</td><td><strong>Rotarix / RotaTeq / Rotavin-M1</strong></td><td>Từ tròn 6 tuần (kết thúc trước 24-32 tuần tuổi tùy loại)</td><td>Phòng Tiêu chảy do vi rút Rota</td>
+                            <td>Uống 2 hoặc 3 liều cách nhau 1 tháng (tùy loại vắc xin)</td>
+                        </tr>
+                        <tr data-age="duoi_1,1_den_2,tren_2,nguoi_lon">
+                            <td>9</td><td><strong>Vaxigrip Tetra / Influvac Tetra / GCFlu</strong></td><td>Từ 6 tháng trở lên và người lớn</td><td>Phòng bệnh cúm</td>
+                            <td>Dưới 9 tuổi chưa từng tiêm: 2 mũi cách 1 tháng, nhắc hàng năm.<br>Trên 9 tuổi hoặc đã tiêm: 1 mũi cơ bản, nhắc hàng năm.</td>
+                        </tr>
+                        <tr data-age="duoi_1,1_den_2,tren_2,nguoi_lon">
+                            <td>12</td><td><strong>Prevenar 13</strong></td><td>Từ tròn 6 tuần trở lên và người lớn</td><td>Phòng bệnh phế cầu khuẩn</td>
+                            <td>Lịch 4 mũi, 3 mũi, 2 mũi hoặc 1 mũi tùy thuộc vào độ tuổi bắt đầu tiêm (Dưới 7 tháng: 4 mũi; 7-12 tháng: 3 mũi; 12-24 tháng: 2 mũi; Trên 24 tháng: 1 mũi)</td>
+                        </tr>
+                        <tr data-age="duoi_1,1_den_2,tren_2,nguoi_lon">
+                            <td>13</td><td><strong>Bexsero</strong></td><td>Từ 2 tháng đến 50 tuổi</td><td>Phòng não mô cầu nhóm B</td>
+                            <td>Từ 2-6 tháng: 2 mũi cách 2 tháng, nhắc 1 mũi.<br>Trên 6 tháng - người lớn: lịch 2 mũi (cách 1-2 tháng tùy tuổi), nhắc lại theo chỉ định.</td>
+                        </tr>
+                        <tr data-age="duoi_1,1_den_2,tren_2">
+                            <td>14</td><td><strong>Synflorix</strong></td><td>Từ tròn 6 tuần đến 5 tuổi</td><td>Phòng bệnh phế cầu khuẩn</td>
+                            <td>Lịch 4 mũi, 3 mũi, 2 mũi tùy thuộc vào độ tuổi bắt đầu tiêm (tương tự Prevenar 13 cho độ tuổi nhỏ)</td>
+                        </tr>
+                        <tr data-age="duoi_1,1_den_2,tren_2">
+                            <td>15</td><td><strong>Quimi-Hib</strong></td><td>Từ 2 tháng đến 15 tuổi</td><td>Phòng viêm màng não do Hib</td>
+                            <td>2-12 tháng: 3 mũi cơ bản (cách 8 tuần), nhắc mũi 4 lúc 15-18 tháng.<br>Trên 12 tháng: 1 mũi duy nhất.</td>
+                        </tr>
+                        <tr data-age="tren_2,nguoi_lon">
+                            <td>16</td><td><strong>mOrcvax</strong></td><td>Từ tròn 2 tuổi trở lên</td><td>Phòng bệnh tả</td>
+                            <td>Lịch cơ bản: 2 liều uống cách nhau 14 ngày. Nhắc lại khi có dịch.</td>
+                        </tr>
+                        <tr data-age="duoi_1,1_den_2,tren_2,nguoi_lon">
+                            <td>17</td><td><strong>Priorix / M-M-R II / Measles, Mumps & Rubella</strong></td><td>Từ tròn 9 tháng tuổi hoặc 12 tháng tuổi trở lên (tùy loại)</td><td>Phòng bệnh Sởi - Quai bị - Rubella</td>
+                            <td>Thường tiêm 2 mũi. Mũi 1 khi đủ tuổi, Mũi 2 cách mũi 1 từ 3 tháng đến 3 năm (hoặc hẹn lúc 4-6 tuổi) tùy tình trạng tiêm sởi trước đó.</td>
+                        </tr>
+                        <tr data-age="duoi_1,1_den_2,tren_2,nguoi_lon">
+                            <td>18</td><td><strong>Imojev</strong></td><td>Từ 9 tháng tuổi trở lên và người lớn</td><td>Phòng Viêm não Nhật Bản</td>
+                            <td>Trẻ em: Mũi 1, Mũi 2 cách 1 năm.<br>Người lớn: 1 mũi duy nhất.</td>
+                        </tr>
+                        <tr data-age="duoi_1,1_den_2,tren_2,nguoi_lon">
+                            <td>-</td><td><strong>VA Mengoc BC</strong></td><td>Từ 6 tháng đến 45 tuổi</td><td>Phòng não mô cầu nhóm B, C</td>
+                            <td>Mũi 1, Mũi 2 cách 45 ngày.</td>
+                        </tr>
+                        <tr data-age="duoi_1,1_den_2,tren_2,nguoi_lon">
+                            <td>-</td><td><strong>Menactra</strong></td><td>Từ tròn 9 tháng tuổi đến 55 tuổi</td><td>Phòng não mô cầu nhóm A, C, Y, W135</td>
+                            <td>9 - <24 tháng: 2 mũi cách 3 tháng.<br>Từ 2 tuổi - 55 tuổi: 1 mũi (nhắc lại nếu có nguy cơ).</td>
+                        </tr>
+                        <tr data-age="duoi_1,1_den_2,tren_2,nguoi_lon">
+                            <td>-</td><td><strong>Varilrix / Varivax / Varicella</strong></td><td>Từ tròn 9 tháng hoặc 12 tháng trở lên</td><td>Phòng bệnh Thủy đậu</td>
+                            <td>Lịch 2 mũi: cách nhau 1 đến 3 tháng tùy độ tuổi và loại vắc xin.</td>
+                        </tr>
+                        <tr data-age="1_den_2,tren_2">
+                            <td>-</td><td><strong>Avaxim 80U / Havax</strong></td><td>Từ 12 tháng hoặc 24 tháng đến dưới 18 tuổi</td><td>Phòng Viêm gan A</td>
+                            <td>Lịch 2 mũi: cách nhau 6 tháng.</td>
+                        </tr>
+                        <tr data-age="1_den_2,tren_2,nguoi_lon">
+                            <td>-</td><td><strong>Twinrix</strong></td><td>Từ 12 tháng trở lên và Người lớn</td><td>Phòng Viêm gan A, B</td>
+                            <td>Trẻ em (12 tháng - <16 tuổi): 2 mũi cách 6 tháng.<br>Người lớn: 3 mũi (0-1-6).</td>
+                        </tr>
+                        <tr data-age="tren_2,nguoi_lon">
+                            <td>-</td><td><strong>Typhim Vi</strong></td><td>Trẻ em trên 2 tuổi và người lớn</td><td>Phòng Thương hàn</td>
+                            <td>1 mũi, nhắc mỗi 3 năm nếu có nguy cơ.</td>
+                        </tr>
+                        <tr data-age="tren_2,nguoi_lon">
+                            <td>-</td><td><strong>Pneumovax 23</strong></td><td>Từ tròn 2 tuổi trở lên và người lớn</td><td>Phòng nhiễm trùng do phế cầu</td>
+                            <td>Trẻ em & người lớn <65 tuổi: 1 mũi (có thể nhắc 1 mũi sau 5 năm nếu >65t).</td>
+                        </tr>
+                        <tr data-age="tren_2,nguoi_lon">
+                            <td>-</td><td><strong>Boostrix / Adacel</strong></td><td>Từ tròn 4 tuổi trở lên và người lớn</td><td>Phòng Bạch hầu, ho gà, uốn ván</td>
+                            <td>Đã tiêm cơ bản: 1 mũi nhắc (nhắc mỗi 10 năm).<br>Chưa tiêm: lịch 3 mũi (0-1-6 tháng).</td>
+                        </tr>
+                        <tr data-age="tren_2,nguoi_lon">
+                            <td>-</td><td><strong>Gardasil / Gardasil 9</strong></td><td>Từ tròn 9 tuổi đến dưới 27 tuổi (hoặc 46 tuổi)</td><td>Phòng các bệnh do virut HPV</td>
+                            <td>Phác đồ 2 mũi (cách 6-12 tháng) hoặc 3 mũi (0-2-6 tháng) tùy độ tuổi bắt đầu tiêm.</td>
+                        </tr>
+                        <tr data-age="tren_2,nguoi_lon">
+                            <td>-</td><td><strong>Qdenga</strong></td><td>Từ tròn 4 tuổi trở lên</td><td>Phòng bệnh Sốt xuất huyết</td>
+                            <td>Mũi 1, Mũi 2 cách nhau 3 tháng.</td>
+                        </tr>
+                        <tr data-age="duoi_1,1_den_2,tren_2,nguoi_lon">
+                            <td>-</td><td><strong>Abhayrab / Verorab / SPEEDA</strong></td><td>Mọi lứa tuổi</td><td>Phòng bệnh dại</td>
+                            <td>Trước phơi nhiễm / Sau phơi nhiễm (Theo phác đồ cụ thể của BS).</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>📊 LỊCH TIÊM VẮC XIN DỊCH VỤ THEO ĐỘ TUỔI</h3>
+            <div class="table-wrapper">
+                <table class="vaccine-table matrix-table">
+                    <thead>
+                        <tr>
+                            <th>STT</th><th>Sơ sinh</th><th>6 tuần</th><th>2 tháng</th><th>6 tháng</th><th>9 tháng</th><th>12 tháng</th><th>2 tuổi</th><th>4 tuổi</th><th>7 tuổi</th><th>9 tuổi</th><th>50 tuổi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1</td><td>Lao</td><td>Infanrix hexa</td><td>Bexsero</td><td>Vaxigrip Tetra</td><td>MVVac</td><td>MMRII</td><td>Typhim Vi</td><td>Qdenga</td><td>Td</td><td>Gardasil</td><td>Shingrix</td></tr>
+                        <tr><td>2</td><td>Viêm gan B</td><td>Hexaxim</td><td>Quimi-Hib</td><td>Influvac Tetra</td><td>Priorix</td><td>Varivax</td><td>Typhoid Vi</td><td>Boostrix</td><td></td><td>Gardasil 9</td><td></td></tr>
+                        <tr><td>3</td><td></td><td>Synflorix</td><td>Tetraxim</td><td>VAMengoc BC</td><td>Imojev</td><td>Avaxim 80U</td><td>mOrcvax</td><td>Adacel</td><td></td><td></td><td></td></tr>
+                        <tr><td>4</td><td></td><td>Prevenar 13</td><td></td><td>Menactra</td><td>Twinrix</td><td>Pneumovax 23</td><td></td><td></td><td></td><td></td><td></td></tr>
+                        <tr><td>5</td><td></td><td>Rotarix</td><td></td><td></td><td>Varilrix</td><td>Jevax</td><td>Havax</td><td></td><td></td><td></td><td></td></tr>
+                        <tr><td>6</td><td></td><td>Rotateq</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                        <tr><td>7</td><td></td><td>Rotavin</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                    </tbody>
+                </table>
+                <div class="note-box">Ghi chú: Verorab, Abhayrab, Speeda, TT tiêm được mọi lứa tuổi.</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="tab-luuy" class="tab-content">
+        <h2 style="color: #c2185b; margin-bottom: 15px;">⚠️ Các Lưu Ý Quan Trọng</h2>
+        
+        <h3>1. Vắc xin chống chỉ định cho Phụ nữ mang thai và Cho con bú</h3>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr><th width="10%">STT</th><th width="45%">Phụ nữ mang thai</th><th width="45%">Cho con bú</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td>BCG</td><td>BCG</td></tr>
+                    <tr><td>2</td><td></td><td>GenHBvax</td></tr>
+                    <tr><td>3</td><td>Prevenar 13</td><td></td></tr>
+                    <tr><td>4</td><td>Priorix</td><td></td></tr>
+                    <tr><td>5</td><td>MMRII</td><td></td></tr>
+                    <tr><td>6</td><td>Mvvac</td><td></td></tr>
+                    <tr><td>7</td><td>Varivax</td><td>Varivax (sau sinh 1 tháng chỉ định được)</td></tr>
+                    <tr><td>8</td><td>Varilrix</td><td>Varilrix (sau sinh 1 tháng chỉ định được)</td></tr>
+                    <tr><td>9</td><td>Imojev</td><td>Imojev</td></tr>
+                    <tr><td>10</td><td>Jevax</td><td></td></tr>
+                    <tr><td>11</td><td>Qdenga</td><td>Qdenga</td></tr>
+                    <tr><td>12</td><td>Gardasil</td><td></td></tr>
+                    <tr><td>13</td><td>Gardasil 9</td><td></td></tr>
+                    <tr><td>14</td><td>Shingrix</td><td></td></tr>
+                    <tr style="font-weight:bold; background-color:#f5f5f5;"><td>Tổng</td><td>13 loại</td><td>6 loại</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="note-box">
+            <strong>Ghi chú:</strong> Các vắc xin sống tiêm trước mang thai, thời gian ngừa thai tối thiểu 1 tháng, tốt nhất 3 tháng (trừ Varivax tối thiểu 3 tháng).
+        </div>
+
+        <h3>2. Các vắc xin tương tác với nhau</h3>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr><th width="10%">STT</th><th width="25%">Vắc xin</th><th width="65%">Tương tác / Lưu ý</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td><strong>Qdenga</strong></td><td>Không tiêm cùng các vắc xin sống trong cùng 1 buổi tiêm chủng -> cách tối thiểu 28 ngày.</td></tr>
+                    <tr><td>2</td><td><strong>Hexaxim</strong></td><td>Không tiêm cùng với các vắc xin Thủy đậu.</td></tr>
+                    <tr><td>3</td><td><strong>Twinrix</strong></td><td>Không tiêm cùng vắc xin 6 trong 1 (Infanrix hexa, Hexaxim), 5 trong 1 (SII) -> cách tối thiểu 28 ngày.</td></tr>
+                    <tr><td>4</td><td><strong>VA Mengoc BC</strong></td><td>Không tiêm cùng vắc xin não mô cầu ACWY (Menactra) -> cách 2 tháng khi trẻ >= 2 tuổi, không cần khoảng cách khi trẻ < 2 tuổi.<br>Không tiêm cùng Typhim khi khách hàng < 18 tuổi.</td></tr>
+                    <tr><td>5</td><td><strong>Menactra</strong></td><td>KH suy giảm miễn dịch: Nên tiêm trước hoặc đồng thời với vắc xin có thành phần bạch hầu (Infanrix, hexaxim, tetraxim, boostrix, adacel, Td,...). Nếu tiêm sau phải cách tối thiểu 6 tháng.<br>KH suy giảm miễn dịch: Không tiêm cùng lúc với Prevenar 13 -> cách 1 tháng (tối thiểu 28 ngày).</td></tr>
+                    <tr><td>6</td><td><strong>Shingrix</strong></td><td>Không tiêm cùng hay xen kẽ với Thủy đậu -> cách 2 tháng sau khi hoàn thành xong phác đồ mỗi loại.</td></tr>
+                    <tr><td>7</td><td><strong>Vắc xin sống</strong></td><td>Tiêm cùng ngày (trừ Qdenga) hoặc cách tối thiểu 28 ngày.</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="note-box">
+            <strong>Ghi chú:</strong> Khách hàng vừa mắc sởi: Không tiêm vắc xin sống trong vòng 28 ngày, vắc xin bất hoạt có thể tiêm (khi có dịch hoặc khách hàng yêu cầu).
+        </div>
+    </div>
 </div>
 
 <script>
@@ -577,47 +551,39 @@
         evt.currentTarget.className += " active";
     }
 
-    // Hàm mở sub-tab (TCMR / Dịch vụ)
     function openSubTab(evt, tabName) {
         let i, tabcontent, tablinks;
         tabcontent = document.getElementsByClassName("sub-tab-content");
-        for (i = 0; i < tabcontent.length; i++) {
-            tabcontent[i].classList.remove("active");
-        }
+        for (i = 0; i < tabcontent.length; i++) tabcontent[i].classList.remove("active");
         tablinks = document.getElementsByClassName("sub-tab-btn");
-        for (i = 0; i < tablinks.length; i++) {
-            tablinks[i].classList.remove("active");
-        }
+        for (i = 0; i < tablinks.length; i++) tablinks[i].classList.remove("active");
         document.getElementById(tabName).classList.add("active");
         evt.currentTarget.classList.add("active");
     }
 
-    // Cập nhật hàm lọc để áp dụng cho tất cả các bảng có class 'vaccine-table'
     function filterTable() {
         let filterValue = document.getElementById('ageFilter').value;
         let rows = document.querySelectorAll('.vaccine-table tbody tr');
         
         rows.forEach(row => {
-            let rowAges = row.getAttribute('data-age').split(',');
-            if (filterValue === 'all' || rowAges.includes(filterValue)) {
-                row.classList.remove('hidden');
-            } else {
-                row.classList.add('hidden');
+            if(row.hasAttribute('data-age')){
+                let rowAges = row.getAttribute('data-age').split(',');
+                if (filterValue === 'all' || rowAges.includes(filterValue)) {
+                    row.classList.remove('hidden');
+                } else {
+                    row.classList.add('hidden');
+                }
             }
         });
     }
 
     function formatDate(date) {
-        let d = date.getDate();
-        let m = date.getMonth() + 1;
-        let y = date.getFullYear();
+        let d = date.getDate(); let m = date.getMonth() + 1; let y = date.getFullYear();
         return (d < 10 ? '0'+d : d) + '/' + (m < 10 ? '0'+m : m) + '/' + y;
     }
 
     function addMonths(date, months) {
-        let d = new Date(date);
-        d.setMonth(d.getMonth() + months);
-        return d;
+        let d = new Date(date); d.setMonth(d.getMonth() + months); return d;
     }
 
     function tinhLichTiem() {
@@ -654,13 +620,14 @@
         let muiCoBan = `${tcmr} 5in1 (hoặc ${dv} 6in1)`;
         let muiRota = `${tcmr} ${dv} Uống ngừa Rota`;
         let muiPheCau = `${dv} Tiêm Phế cầu`;
+        let muiBexsero = `${dv} Não mô cầu B (Bexsero)`;
 
         if (ageInMonths >= 2 && !history.includes('m_2')) {
-            html += `<li><b>Đến hạn tiêm ngay:</b> ${muiCoBan} mũi 1, ${muiRota} liều 1, ${muiPheCau} mũi 1.</li>`; coTiemHomNay = true;
+            html += `<li><b>Đến hạn tiêm ngay:</b> ${muiCoBan} mũi 1, ${muiRota} liều 1, ${muiPheCau} mũi 1, ${muiBexsero} mũi 1.</li>`; coTiemHomNay = true;
         } else if (ageInMonths >= 3 && history.includes('m_2') && !history.includes('m_3')) {
-            html += `<li><b>Đến hạn tiêm ngay:</b> ${muiCoBan} mũi 2, ${muiRota} liều 2, ${muiPheCau} mũi 2.</li>`; coTiemHomNay = true;
+            html += `<li><b>Đến hạn tiêm ngay:</b> ${muiCoBan} mũi 2, ${muiRota} liều 2, ${muiPheCau} mũi 2, ${muiBexsero} mũi 2.</li>`; coTiemHomNay = true;
         } else if (ageInMonths >= 4 && history.includes('m_3') && !history.includes('m_4')) {
-            html += `<li><b>Đến hạn tiêm ngay:</b> ${muiCoBan} mũi 3, ${muiRota} liều 3 (nếu cần), ${muiPheCau} mũi 3.</li>`; coTiemHomNay = true;
+            html += `<li><b>Đến hạn tiêm ngay:</b> ${muiCoBan} mũi 3, ${muiRota} liều 3 (nếu cần), ${muiPheCau} mũi 3, ${muiBexsero} mũi 3 (nếu cần).</li>`; coTiemHomNay = true;
         }
 
         if (ageInMonths >= 6 && !history.includes('m_6')) {
@@ -668,15 +635,27 @@
         }
 
         if (ageInMonths >= 9 && !history.includes('m_9')) {
-            html += `<li><b>Đến hạn tiêm ngay:</b> ${tcmr} Sởi đơn (hoặc ${dv} Sởi-Quai bị-Rubella), ${dv} Não mô cầu ACYW, ${dv} Viêm não Nhật Bản (Imojev).</li>`; coTiemHomNay = true;
+            html += `<li><b>Đến hạn tiêm ngay:</b> ${tcmr} Sởi đơn (hoặc ${dv} Sởi-Quai bị-Rubella (Priorix)), ${dv} Não mô cầu ACYW (Menactra), ${dv} Viêm não Nhật Bản (Imojev).</li>`; coTiemHomNay = true;
         }
 
         if (ageInMonths >= 12 && !history.includes('m_12')) {
-            html += `<li><b>Đến hạn tiêm ngay:</b> ${dv} Viêm gan A, ${dv} Thủy đậu, ${tcmr} ${dv} Viêm não Nhật Bản (tiêm tiếp mũi Imojev hoặc bắt đầu Jevax).</li>`; coTiemHomNay = true;
+            html += `<li><b>Đến hạn tiêm ngay:</b> ${dv} Viêm gan A, ${dv} Thủy đậu, ${tcmr} ${dv} VNNB (tiếp Imojev hoặc Jevax), ${dv} Sởi-Quai bị-Rubella (MMR II).</li>`; coTiemHomNay = true;
         }
 
         if (ageInMonths >= 18 && !history.includes('m_18')) {
-            html += `<li><b>Đến hạn nhắc lại:</b> ${tcmr} Nhắc 5in1/DPT (hoặc ${dv} Nhắc 6in1), ${tcmr} Sởi-Rubella (hoặc ${dv} MMR mũi 2).</li>`; coTiemHomNay = true;
+            html += `<li><b>Đến hạn nhắc lại:</b> ${tcmr} Nhắc 5in1/DPT (hoặc ${dv} Nhắc 6in1), ${tcmr} Sởi-Rubella, ${dv} Nhắc Phế cầu.</li>`; coTiemHomNay = true;
+        }
+        
+        if (ageInMonths >= 24 && !history.includes('m_2y')) {
+            html += `<li><b>Đến hạn tiêm ngay:</b> ${dv} Thương hàn (Typhim Vi), ${dv} Tả (mOrcvax).</li>`; coTiemHomNay = true;
+        }
+
+        if (ageInMonths >= 48 && !history.includes('m_4y')) {
+            html += `<li><b>Đến hạn tiêm ngay:</b> ${dv} Sốt xuất huyết (Qdenga), ${dv} Nhắc Bạch hầu - Ho gà - Uốn ván (Boostrix/Tetraxim/Adacel).</li>`; coTiemHomNay = true;
+        }
+        
+        if (ageInMonths >= 108 && !history.includes('m_9y')) {
+            html += `<li><b>Đến hạn tiêm ngay:</b> ${dv} HPV ngừa ung thư cổ tử cung (Gardasil/Gardasil 9).</li>`; coTiemHomNay = true;
         }
 
         if (!coTiemHomNay) {
@@ -687,15 +666,16 @@
         // TƯƠNG LAI
         html += `<h4 style="color:#007bb5; border-top: 1px solid #eee; padding-top: 15px;">🗓️ LỊCH HẸN MẸ CẦN LƯU VÀO ĐIỆN THOẠI:</h4><ul style="line-height: 1.8; font-size: 16px;">`;
         
-        if (ageInMonths < 2) html += `<li><span class="date-highlight">${formatDate(addMonths(dob, 2))}</span>: Lịch tiêm <b>${tcmr} 5in1 (hoặc ${dv} 6in1), ${dv} Phế cầu, ${tcmr} ${dv} Uống Rota</b></li>`;
-        if (ageInMonths < 3 && history.includes('m_2')) html += `<li><span class="date-highlight">${formatDate(addMonths(dob, 3))}</span>: Lịch tiêm <b>Mũi 2 của 5in1/6in1, Phế cầu, Uống Rota</b></li>`;
-        if (ageInMonths < 4 && history.includes('m_3')) html += `<li><span class="date-highlight">${formatDate(addMonths(dob, 4))}</span>: Lịch tiêm <b>Mũi 3 của 5in1/6in1, Phế cầu</b></li>`;
+        if (ageInMonths < 2) html += `<li><span class="date-highlight">${formatDate(addMonths(dob, 2))}</span>: Lịch tiêm <b>${tcmr} 5in1 (hoặc ${dv} 6in1), ${dv} Phế cầu, ${dv} Bexsero, ${tcmr} ${dv} Uống Rota</b></li>`;
+        if (ageInMonths < 3 && history.includes('m_2')) html += `<li><span class="date-highlight">${formatDate(addMonths(dob, 3))}</span>: Lịch tiêm <b>Mũi 2 của 5in1/6in1, Phế cầu, Bexsero, Uống Rota</b></li>`;
+        if (ageInMonths < 4 && history.includes('m_3')) html += `<li><span class="date-highlight">${formatDate(addMonths(dob, 4))}</span>: Lịch tiêm <b>Mũi 3 của 5in1/6in1, Phế cầu, Bexsero</b></li>`;
         if (ageInMonths < 6) html += `<li><span class="date-highlight">${formatDate(addMonths(dob, 6))}</span>: Lịch tiêm <b>${dv} Não mô cầu BC, ${dv} Cúm mùa</b></li>`;
-        if (ageInMonths < 9) html += `<li><span class="date-highlight">${formatDate(addMonths(dob, 9))}</span>: Lịch tiêm <b>${tcmr} Sởi, ${dv} Não mô cầu ACYW, ${dv} Viêm não NB (Imojev)</b></li>`;
-        if (ageInMonths < 12) html += `<li><span class="date-highlight">${formatDate(addMonths(dob, 12))}</span>: Lịch tiêm <b>${dv} Thủy đậu, ${dv} Viêm gan A, ${tcmr} VNNB (Jevax)</b></li>`;
-        if (ageInMonths < 18) html += `<li><span class="date-highlight">${formatDate(addMonths(dob, 18))}</span>: Lịch <b>${tcmr} Nhắc 5in1, Sởi-Rubella (Hoặc ${dv} 6in1, MMR)</b></li>`;
-        if (ageInMonths < 24) html += `<li><span class="date-highlight">${formatDate(addMonths(dob, 24))}</span>: Lịch tiêm <b>${dv} Thương hàn, Tả</b></li>`;
-        if (ageInMonths >= 24 && ageInMonths < 108) html += `<li><span class="date-highlight">${formatDate(addMonths(dob, 108))}</span>: Lịch tiêm <b>${dv} HPV (Ung thư cổ tử cung)</b></li>`;
+        if (ageInMonths < 9) html += `<li><span class="date-highlight">${formatDate(addMonths(dob, 9))}</span>: Lịch tiêm <b>${tcmr} Sởi, ${dv} Sởi-Quai bị-Rubella (Priorix), ${dv} Não mô cầu ACYW, ${dv} Viêm não NB (Imojev)</b></li>`;
+        if (ageInMonths < 12) html += `<li><span class="date-highlight">${formatDate(addMonths(dob, 12))}</span>: Lịch tiêm <b>${dv} Thủy đậu, ${dv} Viêm gan A, ${dv} MMR II, ${tcmr} VNNB (Jevax)</b></li>`;
+        if (ageInMonths < 18) html += `<li><span class="date-highlight">${formatDate(addMonths(dob, 18))}</span>: Lịch <b>${tcmr} Nhắc 5in1, Sởi-Rubella (Hoặc ${dv} Nhắc 6in1)</b></li>`;
+        if (ageInMonths < 24) html += `<li><span class="date-highlight">${formatDate(addMonths(dob, 24))}</span>: Lịch tiêm <b>${dv} Thương hàn (Typhim Vi), Tả (mOrcvax)</b></li>`;
+        if (ageInMonths >= 24 && ageInMonths < 48) html += `<li><span class="date-highlight">${formatDate(addMonths(dob, 48))}</span>: Lịch tiêm <b>${dv} Sốt xuất huyết (Qdenga), Nhắc Bạch hầu - ho gà - uốn ván</b></li>`;
+        if (ageInMonths >= 48 && ageInMonths < 108) html += `<li><span class="date-highlight">${formatDate(addMonths(dob, 108))}</span>: Lịch tiêm <b>${dv} HPV (Ung thư cổ tử cung)</b></li>`;
 
         html += `</ul>`;
         kqDiv.innerHTML = html;
