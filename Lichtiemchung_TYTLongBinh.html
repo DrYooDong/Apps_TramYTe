@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lịch Tiêm Chủng Mở Rộng - Trạm Y Tế P. Long Bình 2026</title>
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Nunito', sans-serif;
             margin: 0;
             padding: 20px;
-            background-color: #f4f7f6;
+            background-color: #f0f8ff;
             color: #333;
         }
         .container {
@@ -18,13 +19,15 @@
             margin: 0 auto;
             background: #fff;
             padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 16px;
+            box-shadow: 0 8px 20px rgba(0, 123, 181, 0.08);
+            border-top: 5px solid #007bb5;
         }
         h1 {
             text-align: center;
-            color: #2c3e50;
+            color: #005a9e;
             margin-bottom: 5px;
+            font-weight: 800;
         }
         .subtitle {
             text-align: center;
@@ -91,11 +94,31 @@
             padding: 15px;
             border-left: 5px solid #2ecc71;
         }
+        
+        .back-home-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 15px;
+            text-decoration: none;
+            color: #005a9e;
+            font-weight: 700;
+            font-size: 15px;
+            background: #e1f5fe;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+        .back-home-btn:hover {
+            background: #81d4fa;
+            transform: translateX(-3px);
+        }
     </style>
 </head>
 <body>
 
 <div class="container">
+    <a href="index.html" class="back-home-btn">← Quay lại Trang chủ</a>
     <h1>LỊCH TIÊM CHỦNG MỞ RỘNG</h1>
     <div class="subtitle">TRẠM Y TẾ P. LONG BÌNH - NĂM 2026</div>
 

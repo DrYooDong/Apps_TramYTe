@@ -136,11 +136,31 @@
         .matrix-table th { background-color: #f3e5f5 !important; color: #6a1b9a !important; text-align: center; font-size: 13px;}
         .matrix-table td { text-align: center; border-right: 1px solid #eee;}
         .matrix-table td:first-child { text-align: left; font-weight: bold; background-color: #fafafa;}
+
+        .back-home-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 15px;
+            text-decoration: none;
+            color: var(--primary-dark);
+            font-weight: 700;
+            font-size: 15px;
+            background: var(--blue-pastel);
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+        .back-home-btn:hover {
+            background: var(--primary-pastel);
+            transform: translateX(-3px);
+        }
     </style>
 </head>
 <body>
 
 <div class="container">
+    <a href="index.html" class="back-home-btn">← Quay lại Trang chủ</a>
     <div class="header-title">
         <h1>🧸 Cẩm Nang Tiêm Chủng Của Bé 🍼</h1>
         <p>Danh mục đầy đủ nhất: Mở rộng (BYT) & Dịch vụ (VNVC)</p>
@@ -568,6 +588,11 @@
         rows.forEach(row => {
             if(row.hasAttribute('data-age')){
                 let rowAges = row.getAttribute('data-age').split(',');
+                
+                row.style.animation = 'none';
+                row.offsetHeight; /* Kích hoạt reflow */
+                row.style.animation = null;
+
                 if (filterValue === 'all' || rowAges.includes(filterValue)) {
                     row.classList.remove('hidden');
                 } else {
@@ -575,111 +600,6 @@
                 }
             }
         });
-    }
-
-    function formatDate(date) {
-        let d = date.getDate(); let m = date.getMonth() + 1; let y = date.getFullYear();
-        return (d < 10 ? '0'+d : d) + '/' + (m < 10 ? '0'+m : m) + '/' + y;
-    }
-
-    function addMonths(date, months) {
-        let d = new Date(date); d.setMonth(d.getMonth() + months); return d;
-    }
-
-    function tinhLichTiem() {
-        let dobInput = document.getElementById('dobInput').value;
-        if(!dobInput) { alert("Mẹ vui lòng chọn Ngày Sinh của bé nhé!"); return; }
-
-        let dob = new Date(dobInput);
-        let today = new Date(); 
-        today.setHours(0,0,0,0); dob.setHours(0,0,0,0);
-
-        if(dob > today) { alert("Ngày sinh không thể ở tương lai mẹ nhé!"); return; }
-
-        let ageInDays = Math.floor((today - dob) / (1000 * 60 * 60 * 24));
-        let ageInMonths = Math.floor(ageInDays / 30.44);
-        
-        let history = Array.from(document.querySelectorAll('#tab-sotiem input[type="checkbox"]:checked')).map(cb => cb.value);
-        let kqDiv = document.getElementById('kqTuVan');
-        
-        let tcmr = '<span class="badge-tcmr">TCMR</span>';
-        let dv = '<span class="badge-dv">Dịch vụ</span>';
-
-        let html = `<div class="today-highlight">
-            <h3 style="margin-top:0; color:#2e7d32;">🏥 TỔNG KẾT KHÁM HÔM NAY (${formatDate(today)})</h3>
-            <p style="font-size: 16px;">Bé nhà mình hôm nay được <b>${ageInMonths} tháng tuổi</b> (${ageInDays} ngày tuổi).</p>
-        </div>`;
-
-        html += `<h4 style="color:#d32f2f;">💉 TRONG BUỔI KHÁM HÔM NAY BÁC SĨ CHỈ ĐỊNH:</h4><ul style="line-height: 1.8; font-size: 16px;">`;
-        let coTiemHomNay = false;
-
-        if (ageInMonths >= 0 && !history.includes('m_birth')) {
-            html += `<li><b>Nên tiêm bù:</b> ${tcmr} ${dv} Lao (BCG) và Viêm gan B sơ sinh.</li>`; coTiemHomNay = true;
-        }
-        
-        let muiCoBan = `${tcmr} 5in1 (hoặc ${dv} 6in1)`;
-        let muiRota = `${tcmr} ${dv} Uống ngừa Rota`;
-        let muiPheCau = `${dv} Tiêm Phế cầu`;
-        let muiBexsero = `${dv} Não mô cầu B (Bexsero)`;
-
-        if (ageInMonths >= 2 && !history.includes('m_2')) {
-            html += `<li><b>Đến hạn tiêm ngay:</b> ${muiCoBan} mũi 1, ${muiRota} liều 1, ${muiPheCau} mũi 1, ${muiBexsero} mũi 1.</li>`; coTiemHomNay = true;
-        } else if (ageInMonths >= 3 && history.includes('m_2') && !history.includes('m_3')) {
-            html += `<li><b>Đến hạn tiêm ngay:</b> ${muiCoBan} mũi 2, ${muiRota} liều 2, ${muiPheCau} mũi 2, ${muiBexsero} mũi 2.</li>`; coTiemHomNay = true;
-        } else if (ageInMonths >= 4 && history.includes('m_3') && !history.includes('m_4')) {
-            html += `<li><b>Đến hạn tiêm ngay:</b> ${muiCoBan} mũi 3, ${muiRota} liều 3 (nếu cần), ${muiPheCau} mũi 3, ${muiBexsero} mũi 3 (nếu cần).</li>`; coTiemHomNay = true;
-        }
-
-        if (ageInMonths >= 6 && !history.includes('m_6')) {
-            html += `<li><b>Có thể tiêm ngay:</b> ${dv} Viêm não mô cầu BC, ${dv} Cúm mùa.</li>`; coTiemHomNay = true;
-        }
-
-        if (ageInMonths >= 9 && !history.includes('m_9')) {
-            html += `<li><b>Đến hạn tiêm ngay:</b> ${tcmr} Sởi đơn (hoặc ${dv} Sởi-Quai bị-Rubella (Priorix)), ${dv} Não mô cầu ACYW (Menactra), ${dv} Viêm não Nhật Bản (Imojev).</li>`; coTiemHomNay = true;
-        }
-
-        if (ageInMonths >= 12 && !history.includes('m_12')) {
-            html += `<li><b>Đến hạn tiêm ngay:</b> ${dv} Viêm gan A, ${dv} Thủy đậu, ${tcmr} ${dv} VNNB (tiếp Imojev hoặc Jevax), ${dv} Sởi-Quai bị-Rubella (MMR II).</li>`; coTiemHomNay = true;
-        }
-
-        if (ageInMonths >= 18 && !history.includes('m_18')) {
-            html += `<li><b>Đến hạn nhắc lại:</b> ${tcmr} Nhắc 5in1/DPT (hoặc ${dv} Nhắc 6in1), ${tcmr} Sởi-Rubella, ${dv} Nhắc Phế cầu.</li>`; coTiemHomNay = true;
-        }
-        
-        if (ageInMonths >= 24 && !history.includes('m_2y')) {
-            html += `<li><b>Đến hạn tiêm ngay:</b> ${dv} Thương hàn (Typhim Vi), ${dv} Tả (mOrcvax).</li>`; coTiemHomNay = true;
-        }
-
-        if (ageInMonths >= 48 && !history.includes('m_4y')) {
-            html += `<li><b>Đến hạn tiêm ngay:</b> ${dv} Sốt xuất huyết (Qdenga), ${dv} Nhắc Bạch hầu - Ho gà - Uốn ván (Boostrix/Tetraxim/Adacel).</li>`; coTiemHomNay = true;
-        }
-        
-        if (ageInMonths >= 108 && !history.includes('m_9y')) {
-            html += `<li><b>Đến hạn tiêm ngay:</b> ${dv} HPV ngừa ung thư cổ tử cung (Gardasil/Gardasil 9).</li>`; coTiemHomNay = true;
-        }
-
-        if (!coTiemHomNay) {
-            html += `<li><i>Hôm nay bé chưa có lịch tiêm khẩn cấp nào. Mẹ xem lịch hẹn mũi tiếp theo bên dưới nhé.</i></li>`;
-        }
-        html += `</ul>`;
-
-        // TƯƠNG LAI
-        html += `<h4 style="color:#007bb5; border-top: 1px solid #eee; padding-top: 15px;">🗓️ LỊCH HẸN MẸ CẦN LƯU VÀO ĐIỆN THOẠI:</h4><ul style="line-height: 1.8; font-size: 16px;">`;
-        
-        if (ageInMonths < 2) html += `<li><span class="date-highlight">${formatDate(addMonths(dob, 2))}</span>: Lịch tiêm <b>${tcmr} 5in1 (hoặc ${dv} 6in1), ${dv} Phế cầu, ${dv} Bexsero, ${tcmr} ${dv} Uống Rota</b></li>`;
-        if (ageInMonths < 3 && history.includes('m_2')) html += `<li><span class="date-highlight">${formatDate(addMonths(dob, 3))}</span>: Lịch tiêm <b>Mũi 2 của 5in1/6in1, Phế cầu, Bexsero, Uống Rota</b></li>`;
-        if (ageInMonths < 4 && history.includes('m_3')) html += `<li><span class="date-highlight">${formatDate(addMonths(dob, 4))}</span>: Lịch tiêm <b>Mũi 3 của 5in1/6in1, Phế cầu, Bexsero</b></li>`;
-        if (ageInMonths < 6) html += `<li><span class="date-highlight">${formatDate(addMonths(dob, 6))}</span>: Lịch tiêm <b>${dv} Não mô cầu BC, ${dv} Cúm mùa</b></li>`;
-        if (ageInMonths < 9) html += `<li><span class="date-highlight">${formatDate(addMonths(dob, 9))}</span>: Lịch tiêm <b>${tcmr} Sởi, ${dv} Sởi-Quai bị-Rubella (Priorix), ${dv} Não mô cầu ACYW, ${dv} Viêm não NB (Imojev)</b></li>`;
-        if (ageInMonths < 12) html += `<li><span class="date-highlight">${formatDate(addMonths(dob, 12))}</span>: Lịch tiêm <b>${dv} Thủy đậu, ${dv} Viêm gan A, ${dv} MMR II, ${tcmr} VNNB (Jevax)</b></li>`;
-        if (ageInMonths < 18) html += `<li><span class="date-highlight">${formatDate(addMonths(dob, 18))}</span>: Lịch <b>${tcmr} Nhắc 5in1, Sởi-Rubella (Hoặc ${dv} Nhắc 6in1)</b></li>`;
-        if (ageInMonths < 24) html += `<li><span class="date-highlight">${formatDate(addMonths(dob, 24))}</span>: Lịch tiêm <b>${dv} Thương hàn (Typhim Vi), Tả (mOrcvax)</b></li>`;
-        if (ageInMonths >= 24 && ageInMonths < 48) html += `<li><span class="date-highlight">${formatDate(addMonths(dob, 48))}</span>: Lịch tiêm <b>${dv} Sốt xuất huyết (Qdenga), Nhắc Bạch hầu - ho gà - uốn ván</b></li>`;
-        if (ageInMonths >= 48 && ageInMonths < 108) html += `<li><span class="date-highlight">${formatDate(addMonths(dob, 108))}</span>: Lịch tiêm <b>${dv} HPV (Ung thư cổ tử cung)</b></li>`;
-
-        html += `</ul>`;
-        kqDiv.innerHTML = html;
-        kqDiv.style.display = "block";
     }
 </script>
 </body>

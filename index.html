@@ -4,11 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Apps Hỗ Trợ Tại Trạm Y Tế</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary: #007bb5;
+            --primary-dark: #005a9e;
+            --secondary: #4caf50;
+            --bg-color: #f0f8ff;
+            --text-color: #333;
+            --card-bg: #fff;
+        }
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f7f6;
-            color: #333;
+            font-family: 'Nunito', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
             margin: 0;
             padding: 0;
             display: flex;
@@ -16,56 +25,60 @@
             min-height: 100vh;
         }
         header {
-            background-color: #0078d4;
+            background-color: var(--primary);
             color: white;
-            padding: 30px 20px;
+            padding: 40px 20px;
             text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            border-bottom: 4px solid var(--secondary);
         }
-        header h1 { margin: 0; font-size: 2.2em; }
-        header p { margin: 10px 0 0 0; font-size: 1.1em; opacity: 0.9; }
+        header h1 { margin: 0; font-size: 2.5em; font-weight: 800; }
+        header p { margin: 10px 0 0 0; font-size: 1.2em; opacity: 0.9; }
         main {
             flex: 1;
             padding: 40px 20px;
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
             width: 100%;
             box-sizing: border-box;
         }
         .section-title {
             text-align: center;
-            color: #444;
+            color: var(--primary-dark);
             margin-bottom: 40px;
-            font-size: 1.8em;
+            font-size: 2em;
+            font-weight: 800;
         }
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
         }
         .card {
-            background: white;
-            border-radius: 12px;
-            padding: 25px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 30px 25px;
+            box-shadow: 0 8px 20px rgba(0,123,181,0.08);
+            transition: all 0.3s ease;
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
+            border: 1px solid #e1f5fe;
         }
         .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 20px rgba(0,0,0,0.1);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,123,181,0.15);
+            border-color: #81d4fa;
         }
         .icon {
-            font-size: 3em;
-            margin-bottom: 15px;
+            font-size: 3.5em;
+            margin-bottom: 20px;
         }
         .card h3 {
-            color: #005a9e;
+            color: var(--primary-dark);
             margin: 0 0 15px 0;
-            font-size: 1.4em;
+            font-size: 1.5em;
         }
         .card p {
             color: #666;
@@ -74,22 +87,30 @@
             flex-grow: 1;
         }
         .btn {
-            background-color: #107c41;
+            background-color: var(--secondary);
             color: white;
             text-decoration: none;
-            padding: 12px 25px;
-            border-radius: 25px;
-            font-weight: 600;
-            transition: background-color 0.2s;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1.1em;
+            transition: background-color 0.2s, transform 0.2s;
             width: 80%;
+            box-shadow: 0 4px 10px rgba(76, 175, 80, 0.3);
         }
-        .btn:hover { background-color: #0c5e31; }
+        .btn:hover { background-color: #388e3c; transform: translateY(-2px); }
         footer {
-            background-color: #e1dfdd;
-            padding: 15px;
+            background-color: var(--primary-dark);
+            padding: 20px;
             text-align: center;
-            color: #605e5c;
-            font-size: 0.9em;
+            color: #e1f5fe;
+            font-size: 1em;
+            font-weight: 600;
+        }
+        @media (max-width: 768px) {
+            header h1 { font-size: 2em; }
+            .section-title { font-size: 1.5em; }
+            .grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -112,12 +133,6 @@
                 <h3>Lịch tiêm vaccin tại TYT Long Bình</h3>
                 <p>Xem lịch tổ chức tiêm vaccin tại TYT Long Bình.</p>
                 <a href="Lichtiemchung_TYTLongBinh.html" class="btn">Truy cập ngay</a>
-            </div>
-            <div class="card">
-                <div class="icon">💉</div>
-                <h3>Bộ câu hỏi sàng lọc rượu bia ở người > 18 tuổi</h3>
-                <p>Bộ câu hỏi sàng lọc rượu bia ở người > 18 tuổi.</p>
-                <a href="checklist_ruoubia.html" class="btn">Truy cập ngay</a>
             </div>
         </div>
     </main>
